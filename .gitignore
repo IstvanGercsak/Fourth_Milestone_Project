@@ -1,0 +1,11 @@
+# Ignore Intellij IDEA files
+.idea
+
+# Ignore local Database
+*.sqlite3
+
+# Ignore Environmental variable, secret key and Stripe keys
+env.py
+
+# Python cache files
+__pycache__/
