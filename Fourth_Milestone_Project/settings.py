@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
+
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else:
+    development = False
 
 if os.path.exists('env.py'):
     import env
@@ -25,9 +31,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'last-milestone-online-shop.herokuapp.com']
 
 # Application definition
 
@@ -74,12 +81,17 @@ WSGI_APPLICATION = 'Fourth_Milestone_Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if os.environ.get('DEVELOPMENT'):
+    print("Start Database in DEV mod")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    print("Start Database in PROD mod")
+    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
