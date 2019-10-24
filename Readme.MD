@@ -1,5 +1,5 @@
 # Fourth Milestone Project 
-[![Build Status](https://travis-ci.org/IstvanGercsak/Fourth_Milestone_Project.svg?branch=master)](https://travis-ci.org/IstvanGercsak/Fourth_Milestone_Project)
+[![Build Status](https://travis-ci.org/IstvanGercsak/Fourth_Milestone_Project-Online-shop.svg?branch=QA_branch)](https://travis-ci.org/IstvanGercsak/Fourth_Milestone_Project-Online-shop)
 
 # Description
 
