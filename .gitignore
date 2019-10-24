@@ -9,3 +9,7 @@ env.py
 
 # Python cache files
 __pycache__/
+
+# Coverage file from test
+.coverage
+/htmlcov

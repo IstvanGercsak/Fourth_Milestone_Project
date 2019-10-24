@@ -9,20 +9,20 @@
 
 # Application hosts
 - Application and Database
-    - Heroku
+    - Heroku and PostgreSQL
 - Data store
     - Amazon S3 Bucket [link](https://aws.amazon.com/s3/)
+
 
 # Databases
 
 - Upload database schema:
-    - Change url in env.py and type the "migrate" and "makemigrations" command
+    - Change url in env.py and type the "migrate" and "makemigrations" command to upgrade db schema
 
 - Local
     - sqlite3
 - Remote DB for QA and PROD
     - PostgreSQL 
-
 
 # Security
 - Django authentication
@@ -34,3 +34,10 @@
 
 # Test
 - Automated testing with Travis CI [link](https://travis-ci.org/)
+- run test locally:
+    - python manage.py test
+- Coverage:
+    - Install "pip install coverage"
+    - Coverage check "coverage run --source='.' manage.py test"
+    - Run Report with "coverage report"
+    - "coverage html" -> Creates htmlcov report folder 
