@@ -33,7 +33,7 @@
 - [Heroku](https://www.heroku.com/)
     - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud
 - [PostgreSQL](https://www.postgresql.org/)
-    - Test
+    - PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users.
 - [Jinja2](https://palletsprojects.com/p/jinja/)
     - Jinja is a web template engine for the Python programming language. Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django's templates.
 
@@ -81,24 +81,30 @@
 - Set up:
     - S3:
         - Create S3 Bucket to storing data (bucket-for-milestone-project)
-        - Properties/Static website hosting
+            - One for the QA one for the master branch
     - IAM:
         - Create a group about who can access our site
 - I set up two buckets/policies/groups/user:
     - QA bucket (milestone-bucket-qa)
     - Master bucket (milestone-bucket-master)
 
+
+I configured the CORS config and bucket policy as below:
 - CORS Config:
+```
 <CORSConfiguration>
-<CORSRule>
-<AllowedOrigin>*</AllowedOrigin>
-<AllowedMethod>GET</AllowedMethod>
-<MaxAgeSeconds>3000</MaxAgeSeconds>
-<AllowedHeader>Authorization</AllowedHeader>
-</CORSRule>
+    <CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <MaxAgeSeconds>3000</MaxAgeSeconds>
+    <AllowedHeader>Authorization</AllowedHeader>
+    </CORSRule>
 </CORSConfiguration>
+```
 
 - Bucket policy:
+
+```
 {
     "Version":"2012-10-17",
     "Statement":[{
@@ -111,6 +117,7 @@
     }
   ]
 }
+```
 
 - After changes in the static files:
     - Run "collectstatic". It will upload the static files
@@ -120,7 +127,10 @@
 - Django authentication
 - Secret keys and confidential data:
     - Locally:
-        - env.py file
+        - env.py file contains
+            - Secret keys
+            - Database connection details
+            - AWS authentication
     - Online:
         - Storing as environmental variables (Travis CI and Heroku)
 
