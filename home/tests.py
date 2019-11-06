@@ -1,5 +1,6 @@
 from django.test import TestCase
 
+
 # Create your tests here.
 class HomeTesCase(TestCase):
     def test_arrive_at_homepage(self):

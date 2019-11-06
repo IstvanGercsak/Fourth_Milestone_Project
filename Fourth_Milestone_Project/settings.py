@@ -88,7 +88,9 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'home',
     'cart',
-    'accounts'
+    'accounts',
+    'products',
+    'checkout'
 ]
 
 MIDDLEWARE = [
@@ -178,3 +180,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.CaseInsensitiveAuth'
 ]
+
+# Stripe
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
