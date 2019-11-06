@@ -58,8 +58,15 @@
 
 
 ### Branches
-- QA branch for testing and developing
-- Master branch for working stable production environment
+TODO: Modify settings:
+- DEV
+    - Local DB, No travis, no bucket->local static
+- QA 
+    - branch for testing and developing
+    - QA DB, qa bucket, qa travis, 
+- master:
+    - branch for working stable production environment
+    - Master DB, master bucket, no travis, 
 
 ### Application hosts
 - Application and Database
