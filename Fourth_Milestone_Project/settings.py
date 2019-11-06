@@ -86,7 +86,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
-    'home',
     'cart',
     'accounts',
     'products',
@@ -117,8 +116,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # For images:
-                'django.template.context_processors.media'
+                # For images
+                'django.template.context_processors.media',
+                'cart.contexts.cart_contents'
             ],
         },
     },
@@ -172,9 +172,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Messages
-MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
-
 # Login with username or e-mail address
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -182,6 +179,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Stripe
-
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
+
+# Messages
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
