@@ -1,1 +1,1 @@
-web: gunicorn Fourth_Milestone_Project.wsgi:application
+web: python Fourth_Milestone_Project/manage.py collectstatic --noinput; gunicorn Fourth_Milestone_Project.wsgi:application
