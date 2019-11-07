@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 
-from django.contrib.staticfiles.management.commands.runserver import Command as RunserverCommand
-
 if os.path.exists('env.py'):
     import env
 
@@ -22,7 +20,7 @@ AWS_STORAGE_BUCKET_NAME = None
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 # QA
-if os.environ.get('DEVELOPMENT') is "QA":
+if os.environ.get('QA'):
     development = True
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-qa'
     AWS_S3_REGION_NAME = 'eu-west-1'
@@ -41,7 +39,7 @@ if os.environ.get('DEVELOPMENT') is "QA":
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # PROD
-elif os.environ.get('DEVELOPMENT') is "PROD":
+elif os.environ.get('PROD'):
     development = False
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-master'
     AWS_S3_REGION_NAME = 'eu-west-1'
