@@ -30,7 +30,7 @@ if os.environ.get('DEVELOPMENT') is "QA":
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_QA")
     print("Start Database in QA")
     # DATABASE
-    DATABASES = {'default': dj_database_url.parse(os.environ.get("QA_DATABASE_URL"))}
+    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
     STATICFILES_LOCATION = "static"
     STATIC_URL = '/static/'
@@ -49,7 +49,7 @@ elif os.environ.get('DEVELOPMENT') is "PROD":
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_MASTER")
     print("Start Database in PROD")
     # DATABASE
-    DATABASES = {'default': dj_database_url.parse(os.environ.get("PROD_DATABASE_URL"))}
+    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
     STATICFILES_LOCATION = "static"
     STATIC_URL = '/static/'
