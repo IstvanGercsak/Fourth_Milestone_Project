@@ -4,7 +4,6 @@
 ## Description
 
 ## UX
-
 ### UI
 ### User story
 ### Mock up
@@ -37,7 +36,6 @@
 - [Jinja2](https://palletsprojects.com/p/jinja/)
     - Jinja is a web template engine for the Python programming language. Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django's templates.
 
-
 ## Features
 
 - With use of the admin user we can add new product
@@ -51,44 +49,23 @@
 - Store everything in AWS
     - Static folder
     - Pictures
-- Branches
+- Branches (QA and PROD)
 - Test and test Coverage
-- Database sqlite for local and PostgreSQL on Heroku
-- Travis CI running on DEV environment
-
-
-### Branches
-- QA branch for testing and developing
-- Master branch for working stable production environment
-
-### Application hosts
-- Application and Database
-    - Heroku and PostgreSQL
-- Data store
-    - Amazon S3 Bucket [link](https://aws.amazon.com/s3/)
-
-### Databases
-
-- Upload database schema:
-    - Change url in env.py and type the "migrate" and "makemigrations" command to upgrade db schema
-
-- Local
-    - sqlite3
-- Remote DB for QA and PROD
-    - PostgreSQL 
+- Database sqlite for local and travis and PostgreSQL on Heroku
+- Travis CI running on sqlite database with QA codebase environment
 
 ### AWS
+#### I.
 - Set up:
     - S3:
         - Create S3 Bucket to storing data (bucket-for-milestone-project)
-            - One for the QA one for the master branch
+            - One for the QA branch and one for the master branch
     - IAM:
-        - Create a group about who can access our site
-- I set up two buckets/policies/groups/user:
-    - QA bucket (milestone-bucket-qa)
-    - Master bucket (milestone-bucket-master)
+        - Create policies/groups/user about who can access our site
+            - QA bucket (milestone-bucket-qa)
+            - Master bucket (milestone-bucket-master)
 
-
+#### II.
 I configured the CORS config and bucket policy as below:
 - CORS Config:
 ```
@@ -118,25 +95,33 @@ I configured the CORS config and bucket policy as below:
   ]
 }
 ```
+#### III.
+- Set details and secret keys in the setting.py file and in the environmental variables in order to upload and reach the aws buckets.
 
+#### IV.
 - After changes in the static files:
     - Run "collectstatic". It will upload the static files
     - If the QA is ok, we can run the "collectstatic" for the prod.
-
+    - Configure Procfile: python manage.py collectstatic --noinput --noreload;
+        - Collect static after every deploy
+        - The server will run only once instead of twice
+        
 ### Security
 - Django authentication
 - Secret keys and confidential data:
     - Locally:
         - env.py file contains
+            - Environmental information
             - Secret keys
             - Database connection details
             - AWS authentication
+            - Stripe paying information
     - Online:
         - Storing as environmental variables (Travis CI and Heroku)
 
 ### Test
 
-You can see the test description under this link [link]()
+You can see the test description under this link [link](https://github.com/IstvanGercsak/Fourth_Milestone_Project-Online-shop/blob/master/Testing.MD)
 
 - Note that for historical reasons .travis.yml needs to be present on all active branches of your project.
 - Automated testing with Travis CI [link](https://travis-ci.org/)
@@ -147,3 +132,42 @@ You can see the test description under this link [link]()
     - Coverage check "coverage run --source='.' manage.py test"
     - Run Report with "coverage report"
     - "coverage html" -> Creates htmlcov report folder 
+    
+### Deployment and version control:
+I use git for version control
+
+- Local version control
+- Git commit after every given useful part of the project
+- Git push into my github repository (Parallel travis tests )
+- Automatic deploy on Heroku to QA application when the running Travis test is passed
+- After that merge from QA_branch to master
+- Automatic deploy to Heroku master
+- Run the additional commands ("migrate","makemigration" when the database schema changed) 
+
+#### Branches
+- DEV
+    - Local DB, travis, no bucket->local static files
+- QA 
+    - Branch for testing and developing on Heroku
+    - QA DB, QA bucket 
+- master:
+    - Branch for stable production environment on Heroku
+    - Master DB, master bucket, no travis 
+
+- Before every deployment:
+    - Upload database schema:
+        - Deploy new version of code to QA or PROD
+        - Change url in env.py and type the "migrate" and "makemigrations" command to upgrade db schema
+
+#### Application hosts
+- Application and Database
+    - Heroku and PostgreSQL
+- Data store
+    - Amazon S3 Bucket [link](https://aws.amazon.com/s3/)
+
+#### Databases
+
+- Local and travis tests
+    - sqlite3
+- Remote DB for QA and PROD
+    - PostgreSQL 
