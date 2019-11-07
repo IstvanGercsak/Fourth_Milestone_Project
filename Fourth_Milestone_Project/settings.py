@@ -21,27 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWS_STORAGE_BUCKET_NAME = None
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-# local
-if os.environ.get('DEVELOPMENT') is "DEV":
-    development = True
-    # DATABASE
-    print("Start Database locally")
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-    # Static
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, "static"),
-    )
-    # Media
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # QA
-elif os.environ.get('DEVELOPMENT') is "QA":
+if os.environ.get('DEVELOPMENT') is "QA":
     development = True
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-qa'
     AWS_S3_REGION_NAME = 'eu-west-1'
@@ -60,7 +41,7 @@ elif os.environ.get('DEVELOPMENT') is "QA":
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # PROD
-else:
+elif os.environ.get('DEVELOPMENT') is "PROD":
     development = False
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-master'
     AWS_S3_REGION_NAME = 'eu-west-1'
@@ -77,6 +58,25 @@ else:
     MEDIAFILES_LOCATION = 'media'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# local
+else:
+    development = True
+    # DATABASE
+    print("Start Database locally")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+    # Static
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, "static"),
+    )
+    # Media
+    MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # AWS
