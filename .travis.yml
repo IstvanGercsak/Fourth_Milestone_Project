@@ -6,4 +6,4 @@ branches:
     only:
         - QA_branch
 script:
-    - python manage.py test
+    - python manage.py test --noreload
