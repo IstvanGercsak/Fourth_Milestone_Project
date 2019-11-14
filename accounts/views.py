@@ -78,5 +78,10 @@ def registration(request):
 
 def user_profile(request):
     """ The user's profile page """
-    user = User.objects.get(email=request.user.email)
+    user = User.objects.get(
+        email=request.user.email,
+        date_joined=request.user.date_joined,
+        first_name=request.user.first_name,
+        last_name=request.user.last_name,
+        last_login=request.user.last_login)
     return render(request, "profile.html", {"profile": user})

@@ -18,6 +18,7 @@ if os.path.exists('env.py'):
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWS_STORAGE_BUCKET_NAME = None
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+database_details = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 # QA
 if os.environ.get('QA'):
@@ -28,7 +29,7 @@ if os.environ.get('QA'):
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_QA")
     print("Start Database in QA")
     # DATABASE
-    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+    DATABASES = database_details
     # Static
     STATICFILES_LOCATION = "static"
     STATIC_URL = '/static/'
@@ -47,7 +48,7 @@ elif os.environ.get('PROD'):
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_MASTER")
     print("Start Database in PROD")
     # DATABASE
-    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+    DATABASES = database_details
     # Static
     STATICFILES_LOCATION = "static"
     STATIC_URL = '/static/'
@@ -94,23 +95,7 @@ ALLOWED_HOSTS = ['127.0.0.1',
                  'online-shop-qa-branch.herokuapp.com',
                  'last-milestone-online-shop.herokuapp.com']
 
-# # STATIC
-# STATICFILES_LOCATION = "static"
-# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
-#
-# # MEDIA
-# MEDIAFILES_LOCATION = 'media'
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-# # MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -176,7 +161,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

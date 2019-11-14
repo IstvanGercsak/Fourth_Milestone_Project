@@ -5,5 +5,38 @@
 {% block page_heading %} {{ user }}'s Profile {% endblock %}
 
 {% block content %}
-    <p>{{ profile.email }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-2">
+                <p style="text-align: right">First name: </p>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" value="{{ profile.first_name }}" style="text-align: center" aria-label="first_name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <p style="text-align: right">Last name: </p>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" value="{{ profile.last_name }} " style="text-align: center" aria-label="last_name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <p style="text-align: right">E-mail address: </p>
+            </div>
+            <div class="col-sm-2">
+                <input type="text" value="{{ profile.email }}" style="text-align: center" aria-label="email">
+            </div>
+        </div>
+
+        <p>Date joined {{ profile.date_joined }}</p>
+        <p>Last login: {{ profile.last_login }}</p>
+
+        <button class="btn btn-default" type="submit">Update details</button>
+    </form>
 {% endblock %}
+

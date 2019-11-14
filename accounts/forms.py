@@ -19,7 +19,7 @@ class UserRegistrationForm(UserCreationForm):
     # Ha password1-nek irom meg, akkor nincs predefined ellenorzo uzenet
 
     password1 = forms.CharField(
-        label="password",
+        label="Password",
         widget=forms.PasswordInput)
     password2 = forms.CharField(
         label="Password Confirmation",
@@ -29,7 +29,7 @@ class UserRegistrationForm(UserCreationForm):
     # Itt leirhatoak egyeb tulajdonasgai
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
 
     # FORM VALIDATION: DJANGO HANDLES IN THIS WAY;
     # the way django handles this is it takes a form and any form object that contains a cleaned
