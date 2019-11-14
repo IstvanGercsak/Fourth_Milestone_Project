@@ -18,7 +18,6 @@ if os.path.exists('env.py'):
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWS_STORAGE_BUCKET_NAME = None
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-database_details = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 # QA
 if os.environ.get('QA'):
@@ -29,7 +28,7 @@ if os.environ.get('QA'):
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_QA")
     print("Start Database in QA")
     # DATABASE
-    DATABASES = database_details
+    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
     STATICFILES_LOCATION = "static"
     STATIC_URL = '/static/'
@@ -48,7 +47,7 @@ elif os.environ.get('PROD'):
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_MASTER")
     print("Start Database in PROD")
     # DATABASE
-    DATABASES = database_details
+    DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
     STATICFILES_LOCATION = "static"
     STATIC_URL = '/static/'
