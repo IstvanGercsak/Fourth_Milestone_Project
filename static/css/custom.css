@@ -65,3 +65,8 @@ caption p {
 .product-description {
     min-height: 40px;
 }
+
+/* Profile */
+a:link, a:visited, a:active {
+    text-decoration: none;
+}

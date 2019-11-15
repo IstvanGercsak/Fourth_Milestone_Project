@@ -22,6 +22,7 @@ from checkout import urls as urls_checkout
 from django.views import static
 from .settings import MEDIA_ROOT
 from products.views import all_products
+from accounts import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^cart/', include(urls_cart)),
     url(r'^products/', include(urls_product)),
+    url(r'^accounts/profile/edit/$', views.edit_profile, name='edit_profile'),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

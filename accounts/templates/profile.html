@@ -6,37 +6,56 @@
 
 {% block content %}
 
-    <form method="POST">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-sm-2">
-                <p style="text-align: right">First name: </p>
-            </div>
-            <div class="col-sm-2">
-                <input type="text" value="{{ profile.first_name }}" style="text-align: center" aria-label="first_name">
-            </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">Username: </p>
         </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <p style="text-align: right">Last name: </p>
-            </div>
-            <div class="col-sm-2">
-                <input type="text" value="{{ profile.last_name }} " style="text-align: center" aria-label="last_name">
-            </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.username }}</p>
         </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <p style="text-align: right">E-mail address: </p>
-            </div>
-            <div class="col-sm-2">
-                <input type="text" value="{{ profile.email }}" style="text-align: center" aria-label="email">
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">First name: </p>
         </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.first_name }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">Last name: </p>
+        </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.last_name }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">E-mail address: </p>
+        </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.email }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text-center">Date joined {{ user_form.date_joined }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text-center">Last login: {{ user_form.last_login }}</p>
+        </div>
+    </div>
 
-        <p>Date joined {{ profile.date_joined }}</p>
-        <p>Last login: {{ profile.last_login }}</p>
+    <div class="row">
 
-        <button class="btn btn-default" type="submit">Update details</button>
-    </form>
+        <a href="{% url 'edit_profile' %}">
+            <button class="btn btn-info"> Update Details</button>
+        </a>
+
+    </div>
+
 {% endblock %}
 
