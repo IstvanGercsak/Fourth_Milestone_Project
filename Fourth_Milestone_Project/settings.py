@@ -186,3 +186,6 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# Kuld emailt-ha jo az email. Ha nem azonos vagy nem letezik, ellenorzes ra :(

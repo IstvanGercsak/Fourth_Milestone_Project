@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.core.exceptions import ValidationError
 
 
@@ -60,7 +60,13 @@ class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = (
+            'username',
             'email',
             'first_name',
-            'last_name'
+            'last_name',
+            'password'
         )
+
+
+class EditPassword(PasswordChangeForm):
+    """ """
