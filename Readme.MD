@@ -11,11 +11,11 @@
 ## Index
 
 - I. [UX](#ux)
-- II. [Technologies Used](#technologies+used)
-- III. Features
-- IV. AWS
-- V. Test
-- VI. Deployment and version control
+- II. [Technologies_Used](#technologies_used)
+- III. [Features](#features)
+- IV. [AWS](#aws)
+- V. [Test](#test)
+- VI. [Application_hosts_and_databases](#application_hosts_and_databases)
 
 ## UX
 
@@ -70,7 +70,7 @@
     - **Register page**:
     ![Sign out page](project-description/mockups/register.png)
     
-## Technologies Used
+## Technologies_Used
 
 - [HTML5](https://www.w3.org/html/)
     - Hypertext Markup Language is the standard markup language for creating web pages and web applications.
@@ -176,7 +176,7 @@ I use git for version control
     ![Log in page](project-description/additional_pictures_for_readme/env_file.JPG)
 
 
-#### Application hosts and Databases
+#### Application_hosts_and_databases
 
 - For Architecture design I use MVT design pattern (Model-View-Template). Thanks for this I don't have to write raw sql queries.
 - Application and Database
