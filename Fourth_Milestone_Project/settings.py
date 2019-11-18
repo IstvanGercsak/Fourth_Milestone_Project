@@ -26,7 +26,7 @@ if os.environ.get('QA'):
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_QA")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_QA")
-    print("Start Database in QA")
+    print("Start Database on QA_branch")
     # DATABASE
     DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
@@ -45,7 +45,7 @@ elif os.environ.get('PROD'):
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_MASTER")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_MASTER")
-    print("Start Database in PROD")
+    print("Start Database on PROD (master branch)")
     # DATABASE
     DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
@@ -61,7 +61,7 @@ elif os.environ.get('PROD'):
 else:
     development = True
     # DATABASE
-    print("Start Database locally")
+    print("Start Database locally on DEV branch")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
