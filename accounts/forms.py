@@ -18,6 +18,11 @@ class UserRegistrationForm(UserCreationForm):
     # Ha csak simap password-ot adok meg akkor alapbol kiad validacios uzenetet
     # Ha password1-nek irom meg, akkor nincs predefined ellenorzo uzenet
 
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.CharField(required=True)
+    username = forms.CharField(required=True)
+
     password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput)

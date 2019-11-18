@@ -85,7 +85,7 @@
     - Git is a distributed version-control system for tracking changes in source code during software development.
 - [GitHub](https://github.com/)
     - GitHub Inc. is a web-based hosting service for version control using Git.
-- [Django](https://www.djangoproject.com/)
+- [Django version=1.11.25](https://www.djangoproject.com/)
     -  Django is a Python-based free and open-source web framework, which follows the model-template-view architectural pattern. Django's primary goal is to ease the creation of complex, database-driven websites.
 - [Python](https://www.python.org/)
     - Python is an interpreted, high-level, general-purpose programming language
@@ -110,14 +110,22 @@
 - The user can add product in the cart
 - User can login
 - User can make payment
-- User can give review
+- User can give review 
 - User can modify password
-- User can reset password if it is forgotten 
+- User can reset password if it is forgotten
+- 404 error page 
 - Store everything under the static folder on AWS
 - Branches (DEV, QA_branch, master)
 - Automated test and test coverage
 - Database sqlite for local and travis. PostgreSQL on Heroku for QA_branch and master brancy
 - Travis CI running on sqlite database with DEV and QA_branch codebase
+- Blog (Public)
+- Check the orders
+- Search on the site after the items
+- Timeline after I log in
+- User comment timeline
+- Auction or bidding (Maybe)
+- Pagination if there is too much (Maybe) 
 
 ### AWS
 
