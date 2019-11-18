@@ -11,7 +11,7 @@
 ## Index
 
 - I. [UX](#ux)
-- II. [Technologies Used](technologies used)
+- II. [Technologies Used](#technologies used)
 - III. Features
 - IV. AWS
 - V. Test
