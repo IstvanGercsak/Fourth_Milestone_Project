@@ -26,7 +26,7 @@ if os.environ.get('QA'):
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_QA")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_QA")
-    print("Start Database in QA")
+    print("Start Database on QA_branch")
     # DATABASE
     DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
@@ -45,7 +45,7 @@ elif os.environ.get('PROD'):
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_MASTER")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_MASTER")
-    print("Start Database in PROD")
+    print("Start Database on PROD (master branch)")
     # DATABASE
     DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
     # Static
@@ -57,11 +57,11 @@ elif os.environ.get('PROD'):
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-# local
+# local & DEV
 else:
     development = True
     # DATABASE
-    print("Start Database locally")
+    print("Start Database locally on DEV branch")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -94,23 +94,7 @@ ALLOWED_HOSTS = ['127.0.0.1',
                  'online-shop-qa-branch.herokuapp.com',
                  'last-milestone-online-shop.herokuapp.com']
 
-# # STATIC
-# STATICFILES_LOCATION = "static"
-# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
-#
-# # MEDIA
-# MEDIAFILES_LOCATION = 'media'
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-# # MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -176,7 +160,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -199,3 +182,10 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 # Messages
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# Kuld emailt-ha jo az email. Ha nem azonos vagy nem letezik, ellenorzes ra :(

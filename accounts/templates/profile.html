@@ -5,5 +5,66 @@
 {% block page_heading %} {{ user }}'s Profile {% endblock %}
 
 {% block content %}
-    <p>{{ profile.email }}</p>
+
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">Username: </p>
+        </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.username }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">First name: </p>
+        </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.first_name }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">Last name: </p>
+        </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.last_name }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <p class="text-center">E-mail address: </p>
+        </div>
+        <div class="col-sm-2">
+            <p class="text-center">{{ user_form.email }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text-center">Date joined {{ user_form.date_joined }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text-center">Last login: {{ user_form.last_login }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <a href="{% url 'edit_profile' %}">
+            <button class="btn btn-info">Update Details</button>
+        </a>
+
+    </div>
+
+    <div class="row">
+
+        <a href="{% url 'change_password' %}">
+            <button class="btn btn-info">Change Password</button>
+            <p>(If you know your original passowrd)</p>
+        </a>
+
+    </div>
+
 {% endblock %}
+

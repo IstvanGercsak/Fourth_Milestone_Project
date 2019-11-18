@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.core.exceptions import ValidationError
 
 
@@ -19,7 +19,7 @@ class UserRegistrationForm(UserCreationForm):
     # Ha password1-nek irom meg, akkor nincs predefined ellenorzo uzenet
 
     password1 = forms.CharField(
-        label="password",
+        label="Password",
         widget=forms.PasswordInput)
     password2 = forms.CharField(
         label="Password Confirmation",
@@ -29,7 +29,7 @@ class UserRegistrationForm(UserCreationForm):
     # Itt leirhatoak egyeb tulajdonasgai
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
 
     # FORM VALIDATION: DJANGO HANDLES IN THIS WAY;
     # the way django handles this is it takes a form and any form object that contains a cleaned
@@ -54,3 +54,19 @@ class UserRegistrationForm(UserCreationForm):
             return ValidationError("Password must match")
 
         return password2
+
+
+class EditProfileForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            'password'
+        )
+
+
+class EditPassword(PasswordChangeForm):
+    """ """
