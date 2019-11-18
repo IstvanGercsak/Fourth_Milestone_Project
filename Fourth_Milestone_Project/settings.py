@@ -57,7 +57,7 @@ elif os.environ.get('PROD'):
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-# local
+# local & DEV
 else:
     development = True
     # DATABASE
