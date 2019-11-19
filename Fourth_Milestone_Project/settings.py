@@ -60,7 +60,7 @@ elif os.environ.get('PROD'):
 # local & DEV
 else:
     # Set development to false in order to work the 404.html page
-    development = False
+    development = True
     # DATABASE
     print("Start Database locally on DEV branch")
     DATABASES = {
