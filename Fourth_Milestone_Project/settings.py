@@ -21,7 +21,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 # QA
 if os.environ.get('QA'):
-    development = True
+    development = False
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-qa'
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_QA")
@@ -59,6 +59,7 @@ elif os.environ.get('PROD'):
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # local & DEV
 else:
+    # Set development to false in order to work the 404.html page
     development = True
     # DATABASE
     print("Start Database locally on DEV branch")
@@ -90,9 +91,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = development
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'online-shop-qa-branch.herokuapp.com',
-                 'last-milestone-online-shop.herokuapp.com']
+# ALLOWED_HOSTS = ['127.0.0.1',
+#                  'online-shop-qa-branch.herokuapp.com',
+#                  'last-milestone-online-shop.herokuapp.com']
+
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -107,7 +110,8 @@ INSTALLED_APPS = [
     'cart',
     'accounts',
     'products',
-    'checkout'
+    'checkout',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -189,3 +193,4 @@ STATICFILES_DIRS = (
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Kuld emailt-ha jo az email. Ha nem azonos vagy nem letezik, ellenorzes ra :(
+

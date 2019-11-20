@@ -3,12 +3,18 @@ from django.test import TestCase
 
 
 # Create your tests here.
-class HomeTesCase(TestCase):
+class AccountsTesCase(TestCase):
     def setUp(self):
         self.credentials = {
             'username': 'testuser',
             'password': 'secret'}
         User.objects.create_user(**self.credentials)
+
+    # Testing the views
+
+    def test_admin_site(self):
+        page = self.client.get("/admin/login/")
+        self.assertEqual(page.status_code, 200)
 
     def test_arrive_at_login_page(self):
         page = self.client.get("/accounts/login/")
@@ -39,3 +45,26 @@ class HomeTesCase(TestCase):
         self.assertEqual(page.status_code, 200)
         page = self.client.get("/accounts/logout/")
         self.assertRedirects(page, '/', status_code=302)
+
+    def test_404page(self):
+        page = self.client.get("/accounts/test123/")
+        self.assertEqual(page.status_code, 404)
+        self.assertTemplateUsed(page, "404.html")
+
+    def test_password_reset(self):
+        page = self.client.get("/accounts/password-reset/")
+        self.assertEqual(page.status_code, 200)
+
+    def test_edit(self):
+        self.client.post('/accounts/login/', self.credentials, follow=True)
+        page = self.client.get("/accounts/profile/edit/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "edit.html")
+
+    def test_change_password(self):
+        self.client.post('/accounts/login/', self.credentials, follow=True)
+        page = self.client.get("/accounts/profile/change-password/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "change-password.html")
+
+    # Testing the input fields

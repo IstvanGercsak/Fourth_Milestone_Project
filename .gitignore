@@ -13,3 +13,7 @@ __pycache__/
 # Coverage file from test
 .coverage
 /htmlcov
+
+# Media
+media
+media/images

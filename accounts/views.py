@@ -25,6 +25,14 @@ def logout(request):
     return redirect(reverse("index"))
 
 
+def error_404(request):
+    return render(request, '404.html')
+
+
+def error_500(request):
+    return render(request, '404.html')
+
+
 def login(request):
     """ Return a login page (this is a dock string) """
     # Ha megint a login oldalra akarunk menni, akkor nem a login oldalra erkezunk,
@@ -39,10 +47,10 @@ def login(request):
         if login_form.is_valid():
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password'])
-            messages.success(request, "You have successfully logged in!")
 
             if user:
                 auth.login(user=user, request=request)
+                messages.success(request, "You have successfully logged in!")
                 return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")

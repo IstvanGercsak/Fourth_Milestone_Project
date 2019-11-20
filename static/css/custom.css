@@ -1,7 +1,8 @@
 body {
     font-family: Arial;
     padding-top: 100px;
-    background: darkgray;
+    background: #666666;
+    color: black;
 }
 
 footer {

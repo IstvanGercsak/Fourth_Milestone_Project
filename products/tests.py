@@ -7,6 +7,17 @@ from .models import Product
 class ProductTest(TestCase):
     """ Here we'll define the tests that we'll run against our Product moduls """
 
+    # Test models
+
+    def test_name(self):
+        test_product = Product(name="A product")
+        self.assertEqual(str(test_product.name), "A product")
+
+    # How to test textfield
+    def test_description(self):
+        test_product = Product(description="Description")
+        self.assertEqual(str(test_product.description), "Description")
+
     def test_str(self):
-        test_name = Product(name="A product")
-        self.assertEqual(str(test_name), "A product")
+        test_product = Product(price=123)
+        self.assertEqual(int(test_product.price), 123)
