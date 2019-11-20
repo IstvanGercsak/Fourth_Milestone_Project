@@ -14,8 +14,9 @@
 
         <div class="container">
             <div class="row">
-                <p>{{ blog_element.title }}</p>
-                <p>{{ blog_element.description }}</p>
+                <a href="{% url "articles:detail" slug=blog_element.slug %}"><p>{{ blog_element.title }}</p></a>
+                <p>Created at: {{ blog_element.created_at }}</p>
+                <p>{{ blog_element.snippet }}</p>
             </div>
         </div>
 
