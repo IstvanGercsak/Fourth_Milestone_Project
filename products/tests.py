@@ -1,6 +1,5 @@
 from django.test import TestCase
 from .models import Product
-from django.core.files import File
 
 
 # Create your tests here.

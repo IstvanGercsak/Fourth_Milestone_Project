@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %} Blog {% endblock %}
+
+{% block page_heading %} Blog {% endblock %}
+
+{% block content %}
+
+    <h1>Blog</h1>
+
+    {% for blog_element in blog_elements %}
+
+        <div class="container">
+            <div class="row">
+                <p>{{ blog_element.title }}</p>
+                <p>{{ blog_element.description }}</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
