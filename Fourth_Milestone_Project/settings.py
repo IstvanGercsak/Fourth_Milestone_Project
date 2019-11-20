@@ -192,3 +192,4 @@ STATICFILES_DIRS = (
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Kuld emailt-ha jo az email. Ha nem azonos vagy nem letezik, ellenorzes ra :(
+
