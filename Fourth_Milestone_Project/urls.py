@@ -23,10 +23,12 @@ from django.views import static
 from .settings import MEDIA_ROOT
 from products.views import all_products
 from blog import urls as blog_urls
+from home import urls as home_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', all_products, name='index'),
+    url(r'^', include(home_urls), name="index"),
+    url(r'^products/', all_products),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^cart/', include(urls_cart)),
     url(r'^products/', include(urls_product)),

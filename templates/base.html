@@ -38,6 +38,9 @@
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                 {% endif %}
                 <li>
+                    <a href="{% url "products" %}">Products</a>
+                </li>
+                <li>
                     <a href="{% url 'view_cart' %}">
                         <i class="fa fa-shipping-cart"></i> Cart
                         {% if product_count > 0 %}
@@ -46,7 +49,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'articles:view_blog' %}">BLOG</a>
+                    <a href="{% url 'articles:view_blog' %}">Products</a>
                 </li>
             </ul>
         </div>
