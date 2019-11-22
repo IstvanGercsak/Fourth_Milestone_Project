@@ -12,7 +12,6 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET
 
 
-@login_required()
 def checkout(request):
     cart = request.session.get('cart', {})
     total = 0
