@@ -19,3 +19,7 @@ class BlogTest(TestCase):
     def test_blog_description(self):
         test_blog_description = Blog(description="Description")
         self.assertEqual(str(test_blog_description.description), "Description")
+
+    def test_blog_slug(self):
+        test_blog_slug = Blog(slug="slug_test")
+        self.assertEqual(str(test_blog_slug.slug), "slug_test")
