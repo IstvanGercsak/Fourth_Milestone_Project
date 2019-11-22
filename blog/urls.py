@@ -6,8 +6,5 @@ app_name = "articles"
 
 urlpatterns = [
     url(r'^$', view_blog, name='view_blog'),
-    # Create nam capturing group
-    # \w contains everything
-    # https://youtu.be/c2hbT0uIcOQ
     url(r'^(?P<slug>[\w-]+)/$', article_detail, name="detail")
 ]

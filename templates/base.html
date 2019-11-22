@@ -41,15 +41,14 @@
                     <a href="{% url "products" %}">Products</a>
                 </li>
                 <li>
-                    <a href="{% url 'view_cart' %}">
-                        <i class="fa fa-shipping-cart"></i> Cart
+                    <a href="{% url 'view_cart' %}">Cart
                         {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
                         {% endif %}
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'articles:view_blog' %}">Products</a>
+                    <a href="{% url 'articles:view_blog' %}">Blog</a>
                 </li>
             </ul>
         </div>

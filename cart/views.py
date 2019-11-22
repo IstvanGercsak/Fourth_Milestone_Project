@@ -12,10 +12,8 @@ def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
 
     if request.POST.get('quantity') == "":
-        print("test")
-        # messages.success(request, "Please add quantity for the product")
         messages.add_message(request, messages.INFO, "Testmessage")
-        return redirect(reverse('index'))
+        return redirect(reverse('products'))
     else:
         quantity = int(request.POST.get('quantity'))
 
@@ -26,7 +24,7 @@ def add_to_cart(request, id):
         cart[id] = cart.get(id, quantity)
 
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    return redirect(reverse('products'))
 
 
 def adjust_cart(request, id):
@@ -34,9 +32,13 @@ def adjust_cart(request, id):
     Adjust the quantity of the specified product to the specified
     amount
     """
-    print(request.POST)
-    quantity = int(request.POST.get('quantity'))
-    cart = request.session.get('cart', {})
+
+    if request.POST.get('quantity') == "":
+        messages.add_message(request, messages.INFO, "Testmessage")
+        return redirect(reverse('view_cart'))
+    else:
+        quantity = int(request.POST.get('quantity'))
+        cart = request.session.get('cart', {})
 
     if quantity > 0:
         cart[id] = quantity
