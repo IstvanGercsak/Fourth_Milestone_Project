@@ -23,7 +23,7 @@ class CheckoutTesCase(TestCase):
         self.client.post('/accounts/login/', self.credentials, follow=True)
         page = self.client.get("/checkout/")
         self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "checkout.html")
+        self.assertTemplateUsed(page, "cart.html")
 
     # Test models
 
