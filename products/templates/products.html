@@ -7,9 +7,10 @@
                 <div class="panel-body">
                     <div class="product"
                          style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
-
-                    <h3 class="text-center">{{ product.name }}</h3>
-                    <p class="product-description text-center">{{ product.description }}</p>
+                    <a href="{% url "view_product_detail" slug=product.slug %}">
+                        <h3 class="text-center">{{ product.name }}</h3>
+                    </a>
+                    <p class="product-description text-center">{{ product.snippet }}</p>
                     <p class="text-center">{{ product.price }}</p>
 
                     <form method="post" action="{% url 'add_to_cart' product.id %}">

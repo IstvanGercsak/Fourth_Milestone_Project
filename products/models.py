@@ -7,7 +7,11 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     images = models.ImageField(upload_to="images")
-
+    slug = models.SlugField(max_length=50, default="")
 
     def __str__(self):
         return self.name
+
+    # We show the first 50 characters
+    def snippet(self):
+        return self.description[:50] + "....."

@@ -13,7 +13,6 @@ class ProductTest(TestCase):
         test_product = Product(name="A product")
         self.assertEqual(str(test_product.name), "A product")
 
-    # How to test textfield
     def test_description(self):
         test_product = Product(description="Description")
         self.assertEqual(str(test_product.description), "Description")
@@ -21,3 +20,7 @@ class ProductTest(TestCase):
     def test_str(self):
         test_product = Product(price=123)
         self.assertEqual(int(test_product.price), 123)
+
+    def test_product_slug(self):
+        test_product_slug = Product(slug="slug_test")
+        self.assertEqual(str(test_product_slug.slug), "slug_test")
