@@ -31,6 +31,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
+                    <li><a href="{% url "view_feed" %}">Feed</a></li>
                     <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 {% else %}
@@ -41,7 +42,8 @@
                     <a href="{% url "products" %}">Products</a>
                 </li>
                 <li>
-                    <a href="{% url 'view_cart' %}">Cart
+                    <a href="{% url 'view_cart' %}">
+                        <i class="fa fa-shipping-cart"></i> Cart
                         {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
                         {% endif %}
