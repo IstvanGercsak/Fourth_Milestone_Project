@@ -31,12 +31,16 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
+                    <li><a href="{% url "view_feed" %}">Feed</a></li>
                     <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 {% else %}
                     <li><a href="{% url 'registration' %}"><i class="fa fa-user-plus"></i> Register</a></li>
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                 {% endif %}
+                <li>
+                    <a href="{% url "products" %}">Products</a>
+                </li>
                 <li>
                     <a href="{% url 'view_cart' %}">
                         <i class="fa fa-shipping-cart"></i> Cart
@@ -46,19 +50,21 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'articles:view_blog' %}">BLOG</a>
+                    <a href="{% url 'articles:view_blog' %}">Blog</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
+<div id="message_container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
 
 <div class="container">
     {% block content %} {% endblock %}
@@ -68,5 +74,10 @@
         <p>Mady by Istvan Gercsak - Fourth Milestone Project</p>
     </div>
 </footer>
+<script>
+    setTimeout(function () {
+        message_container.style.display = "none";
+    }, 3000);
+</script>
 </body>
 </html>

@@ -14,6 +14,14 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    cart = request.session.get('cart', {})
+    total = 0
+
+    # It means the cart is empty
+    if bool(cart) is False:
+        messages.info(request, "Ures a kosarad more")
+        return render(request, "cart.html")
+
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -23,8 +31,6 @@ def checkout(request):
             order.date = timezone.now()
             order.save()
 
-            cart = request.session.get('cart', {})
-            total = 0
             for id, quantity in cart.items():
                 product = get_object_or_404(Product, pk=id)
                 total += quantity * product.price

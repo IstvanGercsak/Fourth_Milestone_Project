@@ -40,7 +40,7 @@ def login(request):
     # megyunk a Home(be vagyunk jelentkezve) oldalra
     # Ha ez a kod nincs, akkor a login oldal jelenik meg
     if request.user.is_authenticated:
-        return redirect(reverse('index'))
+        return redirect(reverse('view_feed'))
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
         # Ha jon vissza adat akkor meg nezni, hogy valid e
@@ -51,7 +51,7 @@ def login(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully logged in!")
-                return redirect(reverse('index'))
+                return redirect(reverse('view_feed'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
     else:
@@ -85,6 +85,7 @@ def registration(request):
     return render(request, "registration.html", {"registration_form": registration_form})
 
 
+@login_required()
 def edit_profile(request):
     """ Edit user profile """
     if request.method == 'POST':
@@ -99,12 +100,14 @@ def edit_profile(request):
         return render(request, 'edit.html', args)
 
 
+@login_required()
 def user_profile(request):
     """ The user's profile page """
     user_form = request.user
     return render(request, "profile.html", {"user_form": user_form})
 
 
+@login_required()
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
