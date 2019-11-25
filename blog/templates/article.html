@@ -15,21 +15,27 @@
             <p>{{ articles.description }}</p>
         </div>
     </div>
-    <div class="row">
-        <p>Here will be the given comments</p>
-    </div>
+
+
+    {% for comment in comments %}
+        <div class="container" style="margin: 5px; border: #333333 solid 3px">
+            <p>{{ comment.author }}</p>
+            <p>{{ comment.created_date }}</p>
+            <p>{{ comment.comment }}</p>
+
+        </div>
+    {% endfor %}
 
     {% if user.is_authenticated %}
         <div class="row">
             <form method="POST">
                 {% csrf_token %}
-                <input type="text" maxlength="256" aria-label="comment">
-                <a href="{% url "articles:detail" slug=articles.slug %}">
-                    <button type="submit" class="btn btn-success">Comment</button>
-                </a>
+                {{ comment_form | as_bootstrap }}
+                {#                <a href="{% url "articles:detail" slug=articles.slug %}">#}
+                <button type="submit" class="btn btn-success">Comment</button>
+                {#                </a>#}
             </form>
         </div>
     {% endif %}
-
 
 {% endblock %}
