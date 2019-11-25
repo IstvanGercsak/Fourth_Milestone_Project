@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render
+from django.contrib import messages
 from .forms import CommentForm
 from .models import Blog, Comment
 
@@ -20,16 +20,17 @@ def article_detail(request, slug):
             model_instance.post = articles
             model_instance.author = request.user
             model_instance.save()
-            return redirect("articles:view_blog")
+            messages.success(request, "Comment added")
+            return render(request, "article.html", {
+                "articles": articles,
+                "comments": comments,
+                "comment_form": comment_form
+            })
     else:
         comment_form = CommentForm()
 
-    return render(request, "article.html", {"articles": articles, "comments": comments, "comment_form": comment_form})
-
-
-def add_comment(request):
-    if request.method == "POST":
-        comment_form = CommentForm(request.POST)
-        if comment_form.is_valid():
-            comment_form.save()
-            return redirect("articles:view_blog")
+    return render(request, "article.html", {
+        "articles": articles,
+        "comments": comments,
+        "comment_form": comment_form
+    })

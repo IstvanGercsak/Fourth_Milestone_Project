@@ -21,4 +21,26 @@
         </div>
     </div>
 
+
+
+    {% for review in reviews %}
+        <div class="container" style="margin: 5px; border: #333333 solid 3px">
+            <p>{{ review.author }}</p>
+            <p>{{ review.created_date }}</p>
+            <p>{{ review.review }}</p>
+
+        </div>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <div class="row">
+            <form method="POST">
+                {% csrf_token %}
+                {{ review_form | as_bootstrap }}
+                <button type="submit" class="btn btn-success">Comment</button>
+            </form>
+        </div>
+    {% endif %}
+
+
 {% endblock %}

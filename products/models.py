@@ -16,3 +16,18 @@ class Product(models.Model):
     # We show the first 50 characters
     def snippet(self):
         return self.description[:50] + "....."
+
+
+class Review(models.Model):
+    product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='products')
+    author = models.CharField(max_length=200)
+    review = models.TextField()
+    created_date = models.DateTimeField(auto_now=True)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.review
