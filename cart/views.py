@@ -4,13 +4,10 @@ from django.contrib import messages
 
 # Create your views here.
 def view_cart(request):
-    """A View that renders the cart contents page"""
     return render(request, "cart.html")
 
 
 def add_to_cart(request, id):
-    """Add a quantity of the specified product to the cart"""
-
     if request.POST.get('quantity') == "":
         messages.info(request, messages.INFO, "The input field is empty!")
         return redirect(reverse('products'))
@@ -29,11 +26,6 @@ def add_to_cart(request, id):
 
 
 def adjust_cart(request, id):
-    """
-    Adjust the quantity of the specified product to the specified
-    amount
-    """
-
     if request.POST.get('quantity') == "":
         messages.add_message(request, messages.INFO, "We can't modify empty input!")
         return redirect(reverse('view_cart'))
