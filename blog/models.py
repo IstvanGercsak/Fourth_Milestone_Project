@@ -21,7 +21,7 @@ class Comment(models.Model):
 
     post = models.ForeignKey('blog.Blog', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=200)
-    comment = models.TextField()
+    comment = models.CharField(max_length=600)
     created_date = models.DateTimeField(auto_now=True)
     approved_comment = models.BooleanField(default=False)
 

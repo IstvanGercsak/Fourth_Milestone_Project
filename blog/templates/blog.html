@@ -8,15 +8,16 @@
 
 {% block content %}
 
-    <h1>Blog</h1>
-
     {% for blog_element in blog_elements %}
 
         <div class="container">
             <div class="row">
-                <a href="{% url "articles:detail" slug=blog_element.slug %}"><p>{{ blog_element.title }}</p></a>
-                <p>Created at: {{ blog_element.created_at }}</p>
-                <p>{{ blog_element.snippet }}</p>
+                <div class="col-sm-12">
+                    <a href="{% url "articles:detail" slug=blog_element.slug %}"><p
+                            class="article-title">{{ blog_element.title }}</p></a>
+                    <p class="article-created">Created at: {{ blog_element.created_at }}</p>
+                    <p class="article-description">{{ blog_element.snippet }}</p>
+                </div>
             </div>
         </div>
 
