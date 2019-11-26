@@ -1,8 +1,23 @@
 body {
     font-family: sans-serif;
     padding-top: 100px;
-    background: #666666;
+    background: #fafafa;
     color: black;
+}
+
+a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+}
+
+.nav-color {
+    background: #c67605;
+    margin: 0;
+    padding: 0;
+}
+
+h2, a {
+    color: #c67605;
+    transition: all 0.5s ease-in-out;
 }
 
 footer {
@@ -70,4 +85,50 @@ caption p {
 /* Profile */
 a:link, a:visited, a:active {
     text-decoration: none;
+}
+
+/* Blog and Articles */
+.article-title {
+    font-size: 36px;
+}
+
+.article-created {
+    font-size: 20px;
+    border-bottom: black solid 3px;
+}
+
+.article-description {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+.comment-container {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    border: #333333 solid 2px
+}
+
+.comment {
+    margin: 3% auto;
+    text-align: center;
+    width: 100%;
+}
+
+.comment-button {
+    text-align: right;
+}
+
+.comment-author {
+    width: 70%;
+    font-size: 18px;
+    border-bottom: black 2px solid;
+}
+
+
+.comment-content {
+    font-size: 20px;
+    padding: 10px;
+    text-align: justify;
 }

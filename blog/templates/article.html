@@ -8,28 +8,53 @@
 
 {% block content %}
 
+    <!-- Article section -->
+
     <div class="container">
         <div class="row">
-            <h2>{{ articles.title }}</h2>
-            <p>{{ articles.created_at }}</p>
-            <p>{{ articles.description }}</p>
+            <h2 class="article-title">{{ articles.title }}</h2>
+            <p class="article-created">{{ articles.created_at }}</p>
+            <p class="article-description">{{ articles.description }}</p>
         </div>
     </div>
-    <div class="row">
-        <p>Here will be the given comments</p>
-    </div>
 
-    {% if user.is_authenticated %}
+    <!-- Comment container section -->
+
+    <div class="container">
         <div class="row">
-            <form method="POST">
-                {% csrf_token %}
-                <input type="text" maxlength="256" aria-label="comment">
-                <a href="{% url "articles:detail" slug=articles.slug %}">
-                    <button type="submit" class="btn btn-success">Comment</button>
-                </a>
-            </form>
+            <div class="col-sm-12">
+                {% for comment in comments %}
+                    <div class="comment-container">
+                        <p class="comment-author">By {{ comment.author }} | {{ comment.created_date }}</p>
+                        <p class="comment-content">{{ comment.comment }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endif %}
+    </div>
 
+    <!-- Add comment section -->
+
+    <div class="container">
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                {{ comment_form | as_bootstrap_inline }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 comment-button">
+                                <button type="submit" class="btn btn-success">Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
 
 {% endblock %}

@@ -15,7 +15,9 @@
     {% endblock head_js %}
 </head>
 <body>
+
 <!-- Fixed masthead -->
+
 <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -26,12 +28,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Ecommerce</a>
+            <a class="navbar-brand" href="/">E-knowldege</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
-                    <li><a href="{% url "view_feed" %}">Feed</a></li>
+                    <li><a href="{% url "view_feed" %}">
+                        <i class="fa fa-star"></i> Feed</a></li>
                     <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 {% else %}
@@ -39,23 +42,28 @@
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                 {% endif %}
                 <li>
-                    <a href="{% url "products" %}">Products</a>
+                    <a href="{% url "products" %}">
+                        <i class="fa fa-braille"></i> Products</a>
                 </li>
                 <li>
                     <a href="{% url 'view_cart' %}">
-                        <i class="fa fa-shipping-cart"></i> Cart
+                        <i class="fa fa-cart-plus"></i> Cart
                         {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
                         {% endif %}
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'articles:view_blog' %}">Blog</a>
+                    <a href="{% url 'articles:view_blog' %}">
+                        <i class="fa fa-pencil"></i> Blog</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<!-- Messages -->
+
 <div id="message_container">
     {% if messages %}
         {% for message in messages %}
@@ -66,9 +74,14 @@
     {% endif %}
 </div>
 
+<!-- Content -->
+
 <div class="container">
     {% block content %} {% endblock %}
 </div>
+
+<!-- Footer -->
+
 <footer>
     <div class="container">
         <p>Mady by Istvan Gercsak - Fourth Milestone Project</p>

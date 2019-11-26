@@ -2,6 +2,8 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+<!-- Stripe JS preload -->
+
 {% block head_js %}
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
@@ -12,17 +14,22 @@
     <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
+<!-- Checkout content -->
+
 {% block content %}
     <div class="row row-flex">
         {% for item in cart_items %}
             <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
                 <div class="panel-body">
-                    <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.images }}')"></div>
+                    <div class="product"
+                         style="background-image: url('{{ MEDIA_URL }}{{ item.product.images }}')"></div>
                     <div class="caption">
-                        <h3>{{ item.product.name }}</h3>
+                        <a href="{% url "view_product_detail" slug=item.product.slug %}">
+                            <h3>{{ item.product.name }}</h3>
+                        </a>
                         <p class="product-description">{{ item.product.description }}</p>
-                        <p>{{ item.quantity }}</p>
-                        <p>item.product.price</p>
+                        <p>{{ item.product.quantity }}</p>
+                        <p>{{ item.product.price }} {{ item.product.currency }}</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +37,7 @@
     </div>
     <div class="row">
         <p>Total</p>
-        <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+        <p>{{ total }} €</p>
     </div>
 
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">

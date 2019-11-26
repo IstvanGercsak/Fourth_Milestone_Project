@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from .views import view_blog, article_detail
 
-# If there are more app in one project with same url
 app_name = "articles"
 
 urlpatterns = [

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+<!-- Products content -->
+
 {% block content %}
     <div class="row">
         {% for product in products %}
@@ -11,7 +13,7 @@
                         <h3 class="text-center">{{ product.name }}</h3>
                     </a>
                     <p class="product-description text-center">{{ product.snippet }}</p>
-                    <p class="text-center">{{ product.price }}</p>
+                    <p class="text-center">{{ product.price }} {{ product.currency }}</p>
 
                     <form method="post" action="{% url 'add_to_cart' product.id %}">
                         {% csrf_token %}

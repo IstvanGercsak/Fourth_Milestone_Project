@@ -13,13 +13,13 @@ class CheckoutTesCase(TestCase):
 
     # Testing the views
 
-    def test_checkout_with_login(self):
+    def test_checkout_without_login(self):
         page = self.client.get("/checkout/")
         self.assertEqual(page.status_code, 302)
         page = self.client.get("/accounts/login/?next=/checkout/")
         self.assertEqual(page.status_code, 200)
 
-    def test_checkout_without_login(self):
+    def test_checkout_with_login(self):
         self.client.post('/accounts/login/', self.credentials, follow=True)
         page = self.client.get("/checkout/")
         self.assertEqual(page.status_code, 200)
