@@ -1,8 +1,23 @@
 body {
     font-family: sans-serif;
     padding-top: 100px;
-    background: #666666;
+    background: #fafafa;
     color: black;
+}
+
+a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+}
+
+.nav-color {
+    background: #c67605;
+    margin: 0;
+    padding: 0;
+}
+
+h2, a {
+    color: #c67605;
+    transition: all 0.5s ease-in-out;
 }
 
 footer {
@@ -96,7 +111,6 @@ a:link, a:visited, a:active {
 }
 
 .comment {
-
     margin: 3% auto;
     text-align: center;
     width: 100%;
@@ -115,4 +129,6 @@ a:link, a:visited, a:active {
 
 .comment-content {
     font-size: 20px;
+    padding: 10px;
+    text-align: justify;
 }

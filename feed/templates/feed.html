@@ -4,12 +4,14 @@
 
     <h1>News</h1>
 
+    <!-- Feed content -->
+
     {% for feed_element in feed_elements %}
 
-        <p>{{ feed_element.title }}</p>
-        <p>{{ feed_element.created_at }}</p>
+        <p class="article-title">{{ feed_element.title }}</p>
+        <p class="article-created">{{ feed_element.created_at }}</p>
         <p>{{ feed_element.images }}</p>
-        <p>{{ feed_element.description }}</p>
+        <p class="article-description">{{ feed_element.description }}</p>
 
     {% endfor %}
 

@@ -6,11 +6,15 @@
 
 {% block content %}
 
+    <!-- Edit user details -->
+
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success">Submit</button>
-        <a href="{% url 'profile' %}"><button class="btn btn-info">Back</button></a>
+        <a href="{% url 'profile' %}">
+            <button class="btn btn-info">Back</button>
+        </a>
     </form>
 
 {% endblock %}

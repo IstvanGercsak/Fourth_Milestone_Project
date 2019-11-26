@@ -8,6 +8,8 @@
 
 {% block content %}
 
+    <!-- Article section -->
+
     <div class="container">
         <div class="row">
             <h2 class="article-title">{{ articles.title }}</h2>
@@ -16,6 +18,7 @@
         </div>
     </div>
 
+    <!-- Comment container section -->
 
     <div class="container">
         <div class="row">
@@ -29,6 +32,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Add comment section -->
 
     <div class="container">
         {% if user.is_authenticated %}
@@ -46,10 +51,10 @@
                                 <button type="submit" class="btn btn-success">Comment</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
         {% endif %}
     </div>
+
 {% endblock %}

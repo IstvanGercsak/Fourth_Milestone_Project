@@ -6,65 +6,79 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-sm-2">
-            <p class="text-center">Username: </p>
-        </div>
-        <div class="col-sm-2">
-            <p class="text-center">{{ user_form.username }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2">
-            <p class="text-center">First name: </p>
-        </div>
-        <div class="col-sm-2">
-            <p class="text-center">{{ user_form.first_name }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2">
-            <p class="text-center">Last name: </p>
-        </div>
-        <div class="col-sm-2">
-            <p class="text-center">{{ user_form.last_name }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2">
-            <p class="text-center">E-mail address: </p>
-        </div>
-        <div class="col-sm-2">
-            <p class="text-center">{{ user_form.email }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <p class="text-center">Date joined {{ user_form.date_joined }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <p class="text-center">Last login: {{ user_form.last_login }}</p>
-        </div>
-    </div>
+    <!-- Profile details -->
 
-    <div class="row">
+    <div class="container" style="font-size: 20px; text-align: center">
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <p class="text-center">Username: </p>
+            </div>
+        </div>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <input class="text-center" type="text" value="{{ user_form.username }}" disabled aria-label="username">
+            </div>
+        </div>
 
-        <a href="{% url 'edit_profile' %}">
-            <button class="btn btn-info">Update Details</button>
-        </a>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <p class="text-center">First name: </p>
+            </div>
+        </div>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <input class="text-center" type="text" value="{{ user_form.first_name }}" disabled
+                       aria-label="first-name">
+            </div>
+        </div>
 
-    </div>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <p class="text-center">Last name: </p>
+            </div>
+        </div>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <input class="text-center" type="text" value="{{ user_form.last_name }}" disabled
+                       aria-label="last-name">
+            </div>
+        </div>
 
-    <div class="row">
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <p class="text-center">E-mail address: </p>
+            </div>
+        </div>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4">
+                <input class="text-center" type="text" value="{{ user_form.email }}" disabled aria-label="email">
+            </div>
+        </div>
 
-        <a href="{% url 'change_password' %}">
-            <button class="btn btn-info">Change Password</button>
-            <p>(If you know your original passowrd)</p>
-        </a>
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4" style="margin: 10px">
+                <p class="text-center">Date joined {{ user_form.date_joined }}</p>
+            </div>
+        </div>
 
+        <div class="row" style="margin: 10px">
+            <div class="col-sm-4" style="margin: 10px">
+                <p class="text-center">Last login: {{ user_form.last_login }}</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin: 10px">
+            <a href="{% url 'edit_profile' %}">
+                <button class="btn btn-info">Update Details</button>
+            </a>
+        </div>
+
+        <div class="row" style="margin: 10px">
+            <a href="{% url 'change_password' %}">
+                <button class="btn btn-info">Change Password</button>
+                <p>(If you know your original password)</p>
+            </a>
+        </div>
     </div>
 
 {% endblock %}
-

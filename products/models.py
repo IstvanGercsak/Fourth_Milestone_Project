@@ -13,7 +13,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    # We show the first 50 characters
     def snippet(self):
         return self.description[:50] + "....."
 

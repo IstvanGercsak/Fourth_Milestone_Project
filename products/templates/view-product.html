@@ -8,39 +8,55 @@
 
 {% block content %}
 
-    <h1>Product detail</h1>
+    <!-- Product detail section -->
 
     <div class="container">
         <div class="row">
-
             <div class="product"
                  style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
-            <p>{{ product.name }}</p>
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }} {{ product.currency }}</p>
+            <p class="article-title">{{ product.name }}</p>
+            <p class="article-description">{{ product.description }}</p>
+            <p class="article-created">{{ product.price }} {{ product.currency }}</p>
         </div>
     </div>
 
+    <!-- Review container section -->
 
-
-    {% for review in reviews %}
-        <div class="container" style="margin: 5px; border: #333333 solid 3px">
-            <p>{{ review.author }}</p>
-            <p>{{ review.created_date }}</p>
-            <p>{{ review.review }}</p>
-
-        </div>
-    {% endfor %}
-
-    {% if user.is_authenticated %}
+    <div class="container">
         <div class="row">
-            <form method="POST">
-                {% csrf_token %}
-                {{ review_form | as_bootstrap }}
-                <button type="submit" class="btn btn-success">Comment</button>
-            </form>
+            <div class="col-sm-12">
+                {% for review in reviews %}
+                    <div class="comment-container">
+                        <p class="comment-author">{{ review.author }} | {{ review.created_date }}</p>
+                        <p class="comment-content">{{ review.review }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endif %}
+    </div>
 
+    <!-- Add review container section -->
+
+    <div class="container">
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                {{ review_form | as_bootstrap_inline }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 comment-button">
+                                <button type="submit" class="btn btn-success">Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
 
 {% endblock %}
