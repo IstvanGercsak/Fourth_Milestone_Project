@@ -14,7 +14,9 @@
         <div class="row">
             <h2 class="article-title">{{ articles.title }}</h2>
             <p class="article-created">{{ articles.created_at }}</p>
-            <div class="article-image" style="background-image: url('{{ MEDIA_URL }}{{ articles.images }}')"></div>
+            {% if articles.images %}
+                <div class="article-image" style="background-image: url('{{ MEDIA_URL }}{{ articles.images }}')"></div>
+            {% endif %}
             <p class="article-description">{{ articles.description }}</p>
         </div>
     </div>
