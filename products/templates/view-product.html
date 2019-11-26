@@ -20,6 +20,22 @@
         </div>
     </div>
 
+    <!-- Add to cart -->
+
+    <div class="container">
+        <div class="row">
+                <form method="post" action="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <div class="col-sm-6 input-group" style="text-align: center; margin: 15px auto">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control"
+                               placeholder="Quantity" aria-label="quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </span>
+                    </div>
+                </form>
+        </div>
+    </div>
     <!-- Review container section -->
 
     <div class="container">
