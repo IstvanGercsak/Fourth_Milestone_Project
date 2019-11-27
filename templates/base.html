@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,6 +57,12 @@
                 <li>
                     <a href="{% url 'articles:view_blog' %}">
                         <i class="fa fa-pencil"></i> Blog</a>
+                </li>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" class="navigation-search">
+                        <input type="search" name="search" class="" required minlength="3">
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </li>
             </ul>
         </div>

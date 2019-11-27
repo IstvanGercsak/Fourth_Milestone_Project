@@ -15,6 +15,13 @@ a:hover, a:visited, a:active, a:link {
     padding: 0;
 }
 
+/* Navigation */
+
+.navigation-search{
+    padding: 5px;
+}
+
+/* Content */
 h2, a {
     color: #c67605;
     transition: all 0.5s ease-in-out;
@@ -120,6 +127,7 @@ a:link, a:visited, a:active {
 
 .article-title {
     font-size: 36px;
+    margin-top: 30px;
 }
 
 .article-created {
