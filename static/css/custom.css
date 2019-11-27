@@ -97,6 +97,16 @@ a:link, a:visited, a:active {
     text-decoration: none;
 }
 
+.profile-container {
+    font-size: 20px;
+    text-align: center
+}
+
+.margin-profile-field {
+    margin: 10px;
+    padding: 5px;
+}
+
 /* Blog and Articles */
 .article-image {
     background-size: cover;
@@ -160,3 +170,14 @@ a:link, a:visited, a:active {
         top: 5%;
     }
 }
+
+@media only screen and (max-width: 1025px) {
+    .margin-profile-field {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 5px;
+    }
+}
+
+
+
