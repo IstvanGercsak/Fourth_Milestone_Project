@@ -14,7 +14,9 @@
                  style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
             <p class="article-title">{{ product.name }}</p>
             <p class="article-description">{{ product.description }}</p>
-            <p class="article-created">{{ product.price }} {{ product.currency }}</p>
+
+            <p class="product-price">{{ product.price }} {{ product.currency }}</p>
+
         </div>
     </div>
 
@@ -22,16 +24,16 @@
 
     <div class="container">
         <div class="row">
-                <form method="post" action="{% url 'add_to_cart' product.id %}">
-                    {% csrf_token %}
-                    <div class="col-sm-6 input-group" style="text-align: center; margin: 15px auto">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control"
-                               placeholder="Quantity" aria-label="quantity">
-                        <span class="input-group-btn">
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+                <div class="col-sm-6 input-group product-input">
+                    <input name="quantity" type="number" min="1" max="999" class="form-control"
+                           placeholder="Quantity" aria-label="quantity">
+                    <span class="input-group-btn">
                             <button class="btn btn-success" type="submit"><i class="fa fa-plus"></i> Add</button>
                         </span>
-                    </div>
-                </form>
+                </div>
+            </form>
         </div>
     </div>
     <!-- Review container section -->
@@ -64,7 +66,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 comment-button">
-                                <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Add Review</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Add Review
+                                </button>
                             </div>
                         </div>
                     </form>

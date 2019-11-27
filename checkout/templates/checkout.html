@@ -29,7 +29,7 @@
                         <a href="{% url "view_product_detail" slug=item.product.slug %}">
                             <h3>{{ item.product.name }}</h3>
                         </a>
-                        <p class="product-description">{{ item.product.description }}</p>
+                        <p class="product-description">{{ item.product.snippet }}</p>
                         <p>{{ item.product.quantity }}</p>
                         <p>{{ item.product.price }} {{ item.product.currency }}</p>
                     </div>
@@ -38,8 +38,8 @@
         {% endfor %}
     </div>
     <div class="row">
-        <p>Total</p>
-        <p>{{ total }} €</p>
+        <p class="product-price">Total</p>
+        <p class="product-price">{{ total }} €</p>
     </div>
 
     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
