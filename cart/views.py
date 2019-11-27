@@ -34,9 +34,10 @@ def adjust_cart(request, id):
         cart = request.session.get('cart', {})
 
     if quantity > 0:
+        messages.info(request, "You modified the number of the items!")
         cart[id] = quantity
     else:
-        cart.pop(id)
+        return redirect(reverse('view_cart'))
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
