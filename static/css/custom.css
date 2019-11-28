@@ -1,11 +1,24 @@
 body {
     font-family: sans-serif;
     padding-top: 100px;
+    /*background: #00b1b3;*/
     background: #fafafa;
+    /*color: #00cc5f;*/
     color: black;
+    /*color: #157ab5;*/
+    font-weight: bold;
+}
+
+a:hover, a:focus {
+    color: #00cc5f;
+    text-decoration: underline
 }
 
 /* Navigation */
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #dddddd;
+!important;
+}
 
 .nav-color {
     background: #c67605;
