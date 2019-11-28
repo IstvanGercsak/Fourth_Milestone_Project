@@ -61,7 +61,7 @@
                 <li>
                     <form action="{% url 'search' %}" method="GET" class="navigation-search">
                         {% csrf_token %}
-                        <input type="search" name="search" class="form-control-my" required minlength="3">
+                        <input type="search" name="search" class="form-control-my" required minlength="3" aria-label="search">
                         <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
                     </form>
                 </li>

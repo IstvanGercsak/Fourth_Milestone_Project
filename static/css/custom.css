@@ -101,6 +101,7 @@ caption p {
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    margin: 15px;
 }
 
 .product-description {
@@ -133,6 +134,30 @@ a:link, a:visited, a:active {
 .margin-profile-field {
     margin: 10px;
     padding: 5px;
+}
+
+/* Cart */
+
+.padding-zero {
+    padding: 0;
+}
+
+.amend-button {
+    padding: 0;
+    background-color: #fafafa;
+    border: 0 #fafafa solid
+}
+
+/* Checkout */
+
+.display-none {
+    display: none;
+}
+
+/* User detail */
+
+.user-detail {
+    font-size: 20px;
 }
 
 /* Blog and Articles */
@@ -172,7 +197,7 @@ a:link, a:visited, a:active {
 
 .comment {
     margin: 3% auto;
-    text-align: center;
+    text-align: justify;
     width: 100%;
 }
 
