@@ -18,7 +18,7 @@ def checkout(request):
     total = 0
 
     if bool(cart) is False:
-        messages.info(request, "Your cart is empty!")
+        messages.error(request, "Your cart is empty!")
         return render(request, "cart.html")
 
     if request.method == "POST":

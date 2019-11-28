@@ -19,7 +19,7 @@
 
 <!-- Fixed masthead -->
 
-<nav class="navbar navbar-masthead navbar-fixed-top" style="background: #333333">
+<nav class="navbar navbar-masthead navbar-fixed-top black-background">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -31,8 +31,8 @@
             </button>
             <a class="navbar-brand" href="/">E-knowldege</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" style="background: #333333">
-            <ul class="nav navbar-nav navbar-right" style="background: #333333">
+        <div id="navbar" class="navbar-collapse collapse black-background">
+            <ul class="nav navbar-nav navbar-right black-background">
                 {% if user.is_authenticated %}
                     <li><a href="{% url "view_feed" %}">
                         <i class="fa fa-star"></i> Feed</a></li>
@@ -62,7 +62,7 @@
                     <form action="{% url 'search' %}" method="GET" class="navigation-search">
                         {% csrf_token %}
                         <input type="search" name="search" class="form-control-my" required minlength="3" aria-label="search">
-                        <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn btn-secondary search-button"><i class="fa fa-search fa-2x"></i></button>
                     </form>
                 </li>
             </ul>
