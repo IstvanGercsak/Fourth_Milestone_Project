@@ -12,8 +12,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <a href="{% url "articles:detail" slug=blog_element.slug %}"><p
-                            class="article-title">{{ blog_element.title }}</p></a>
+                    <a href="{% url "articles:detail" slug=blog_element.slug %}">
+                        <p class="article-title">{{ blog_element.title }}</p>
+                    </a>
                     <p class="article-created">Created at: {{ blog_element.created_at }}</p>
                     <p class="article-description">{{ blog_element.snippet }}</p>
                 </div>

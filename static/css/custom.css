@@ -30,6 +30,8 @@ footer {
 footer p {
     color: #00cc5f;
     font-size: 22px;
+    margin: auto auto;
+    padding-top: 3px;
 }
 
 
@@ -87,6 +89,15 @@ footer p {
     background-color: #00cc5f;
 }
 
+/* Feed */
+
+.feed-header {
+    color: #c67605;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: #00cc5f solid 2px;
+}
 
 /* Content/Template */
 
@@ -94,7 +105,7 @@ a:hover, a:visited, a:active, a:link {
     text-decoration: none;
 }
 
-a, h2, h3, a > h3 {
+a, h2 {
     color: #c67605;
     transition: all 0.5s ease-in-out;
     font-weight: bold;
@@ -214,9 +225,15 @@ a:link, a:visited, a:active {
 
 
 .article-title {
-    color: #c67605;
     font-size: 36px;
     margin-top: 30px;
+    border-bottom: #666666 solid 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+.article-title:hover {
+    border-bottom: #c67605 solid 3px;
+    transition: all 0.5s ease-in-out;
 }
 
 .article-created {
@@ -275,6 +292,13 @@ a:link, a:visited, a:active {
 
     .navbar-nav > li > a {
         font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .amend-button {
+        background: #666666;
+        text-align: center;
     }
 }
 

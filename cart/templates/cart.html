@@ -23,7 +23,7 @@
                          style="background-image: url('{{ MEDIA_URL }}{{ item.product.images }}')"></div>
                     <div class="caption">
                         <a href="{% url "view_product_detail" slug=item.product.slug %}">
-                            <h3 class="text-center">{{ item.product.name }}</h3>
+                            <p class="text-center product-title">{{ item.product.name }}</p>
                         </a>
                         <p class="product-description text-justify">{{ item.product.snippet }}</p>
                         <p class="text-center">{{ item.product.price }} {{ item.product.currency }}</p>
