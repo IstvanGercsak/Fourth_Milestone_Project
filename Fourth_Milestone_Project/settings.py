@@ -16,13 +16,12 @@ if os.path.exists('env.py'):
     import env
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-AWS_STORAGE_BUCKET_NAME = None
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 # QA
 if os.environ.get('QA'):
     development = False
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-qa'
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_QA")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_QA")
@@ -42,6 +41,7 @@ if os.environ.get('QA'):
 elif os.environ.get('PROD'):
     development = False
     AWS_STORAGE_BUCKET_NAME = 'milestone-bucket-master'
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID_MASTER")
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY_MASTER")
