@@ -14,7 +14,7 @@ class Product(models.Model):
         return self.name
 
     def snippet(self):
-        return self.description[:50] + "....."
+        return self.description[:120] + "....."
 
 
 class Review(models.Model):

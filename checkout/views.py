@@ -17,9 +17,8 @@ def checkout(request):
     cart = request.session.get('cart', {})
     total = 0
 
-    # It means the cart is empty
     if bool(cart) is False:
-        messages.info(request, "Ures a kosarad more")
+        messages.error(request, "Your cart is empty!")
         return render(request, "cart.html")
 
     if request.method == "POST":

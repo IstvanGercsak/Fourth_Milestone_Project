@@ -1,14 +1,15 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AuthenticateMe</title>
+    <title>{% block page_title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
@@ -18,7 +19,7 @@
 
 <!-- Fixed masthead -->
 
-<nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
+<nav class="navbar navbar-masthead navbar-fixed-top black-background">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -30,8 +31,8 @@
             </button>
             <a class="navbar-brand" href="/">E-knowldege</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+        <div id="navbar" class="navbar-collapse collapse black-background">
+            <ul class="nav navbar-nav navbar-right black-background">
                 {% if user.is_authenticated %}
                     <li><a href="{% url "view_feed" %}">
                         <i class="fa fa-star"></i> Feed</a></li>
@@ -56,6 +57,15 @@
                 <li>
                     <a href="{% url 'articles:view_blog' %}">
                         <i class="fa fa-pencil"></i> Blog</a>
+                </li>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" class="navigation-search">
+                        {% csrf_token %}
+                        <input type="search" name="search" class="form-control-my" required minlength="3"
+                               aria-label="search">
+                        <button type="submit" class="btn btn-secondary search-button"><i class="fa fa-search fa-2x"></i>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -84,7 +94,35 @@
 
 <footer>
     <div class="container">
-        <p>Mady by Istvan Gercsak - Fourth Milestone Project</p>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <p>Fourth Milestone Project Made by Istvan Gercsak</p>
+            </div>
+            <div class="col-sm-6">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/istvangercsak/" target="_blank">
+                            <i class="fa fa-linkedin-square fa-4x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/IstvanGercsak" target="_blank">
+                            <i class="fa fa-github-square fa-4x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.ige-it.com/" target="_blank">
+                            <i class="fa fa-globe fa-4x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="mailto:istvan.gercsak@gmail.com?subject=Interest">
+                            <i class="fa fa-envelope-square fa-4x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 <script>

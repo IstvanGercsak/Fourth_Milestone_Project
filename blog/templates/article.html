@@ -2,9 +2,7 @@
 
 {% load bootstrap_tags %}
 
-{% block page_title %} Product {% endblock %}
-
-{% block page_heading %} {{ articles.title }} {% endblock %}
+{% block page_title %} {{ articles.title }} {% endblock %}
 
 {% block content %}
 
@@ -14,6 +12,9 @@
         <div class="row">
             <h2 class="article-title">{{ articles.title }}</h2>
             <p class="article-created">{{ articles.created_at }}</p>
+            {% if articles.images %}
+                <div class="article-image" style="background-image: url('{{ MEDIA_URL }}{{ articles.images }}')"></div>
+            {% endif %}
             <p class="article-description">{{ articles.description }}</p>
         </div>
     </div>
@@ -48,7 +49,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 comment-button">
-                                <button type="submit" class="btn btn-success">Comment</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Comment</button>
                             </div>
                         </div>
                     </form>

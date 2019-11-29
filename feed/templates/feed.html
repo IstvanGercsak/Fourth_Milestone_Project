@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
+{% block page_title %} News Feed {% endblock %}
+
 {% block content %}
 
-    <h1>News</h1>
+    <h1 class="feed-header">News</h1>
 
     <!-- Feed content -->
 
@@ -10,7 +12,9 @@
 
         <p class="article-title">{{ feed_element.title }}</p>
         <p class="article-created">{{ feed_element.created_at }}</p>
-        <p>{{ feed_element.images }}</p>
+        {% if feed_element.images %}
+            <div class="article-image" style="background-image: url('{{ MEDIA_URL }}{{ feed_element.images }}')"></div>
+        {% endif %}
         <p class="article-description">{{ feed_element.description }}</p>
 
     {% endfor %}

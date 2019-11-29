@@ -24,6 +24,7 @@ from .settings import MEDIA_ROOT
 from blog import urls as blog_urls
 from home import urls as home_urls
 from feed import urls as feed_urls
+from search import urls as search_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -34,5 +35,6 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
     url(r'^blog/', include(blog_urls)),
-    url(r'^feed/', include(feed_urls))
+    url(r'^feed/', include(feed_urls)),
+    url(r'^search/', include(search_urls))
 ]

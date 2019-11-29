@@ -1,23 +1,22 @@
+/* General */
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+
 body {
     font-family: sans-serif;
     padding-top: 100px;
-    background: #fafafa;
+    background: #666666;
     color: black;
+    font-weight: bold;
 }
 
-a:hover, a:visited, a:active, a:link {
-    text-decoration: none;
-}
-
-.nav-color {
-    background: #c67605;
-    margin: 0;
-    padding: 0;
-}
-
-h2, a {
-    color: #c67605;
-    transition: all 0.5s ease-in-out;
+a:hover, a:focus {
+    color: #00cc5f;
+    text-decoration: underline
 }
 
 footer {
@@ -28,12 +27,56 @@ footer {
     color: #A9A9A9;
 }
 
-.icon-bar {
-    background-color: #ff9d91;
+footer p {
+    color: #00cc5f;
+    font-size: 22px;
+    margin: auto auto;
+    padding-top: 3px;
 }
 
-.accountform {
-    padding-top: 20px;
+
+/* Navigation */
+
+.search-button {
+    padding: 0;
+}
+
+.black-background {
+    background: #333333;
+    border: 0;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #dddddd;
+!important;
+}
+
+.nav-color {
+    background: #c67605;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-search {
+    padding: 10px;
+}
+
+.form-control-my {
+    height: calc(1.5em + 0.75rem + 2px);
+    padding-left: 5px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.icon-bar {
+    background-color: #ff9d91;
 }
 
 .badge {
@@ -42,11 +85,45 @@ footer {
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
     border-radius: 9px;
+    margin: 0;
+    background-color: #00cc5f;
 }
 
-.label-warning[href],
-.badge-warning[href] {
-    background-color: #c67605;
+/* Feed */
+
+.feed-header {
+    color: #c67605;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: #00cc5f solid 2px;
+}
+
+/* Content/Template */
+
+a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+}
+
+a, h2 {
+    color: #c67605;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+#message_container {
+    margin: 0 auto;
+    width: 35%;
+    position: fixed;
+    top: 15%;
+    left: 50px;
+    opacity: 0.7;
+}
+
+/* Product */
+
+.product-title {
+    font-size: 26px;
 }
 
 .product {
@@ -76,20 +153,87 @@ caption p {
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    margin: 15px;
 }
 
 .product-description {
     min-height: 40px;
 }
 
+.product-price {
+    font-size: 44px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: black solid 3px;
+}
+
+.product-input {
+    text-align: center;
+    margin: 15px auto;
+}
+
 /* Profile */
+
 a:link, a:visited, a:active {
     text-decoration: none;
 }
 
+.profile-container {
+    font-size: 20px;
+    text-align: center
+}
+
+.margin-profile-field {
+    margin: 10px;
+    padding: 5px;
+}
+
+/* Cart */
+
+.padding-zero {
+    padding: 0;
+}
+
+.amend-button {
+    padding: 0;
+    background-color: #fafafa;
+    border: 0 #fafafa solid
+}
+
+/* Checkout */
+
+.display-none {
+    display: none;
+}
+
+/* User detail */
+
+.user-detail {
+    font-size: 20px;
+}
+
 /* Blog and Articles */
+
+.article-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 400px;
+    margin: 15px auto;
+}
+
+
 .article-title {
     font-size: 36px;
+    margin-top: 30px;
+    border-bottom: #666666 solid 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+.article-title:hover {
+    border-bottom: #c67605 solid 3px;
+    transition: all 0.5s ease-in-out;
 }
 
 .article-created {
@@ -112,7 +256,7 @@ a:link, a:visited, a:active {
 
 .comment {
     margin: 3% auto;
-    text-align: center;
+    text-align: justify;
     width: 100%;
 }
 
@@ -132,3 +276,31 @@ a:link, a:visited, a:active {
     padding: 10px;
     text-align: justify;
 }
+
+/* Media query */
+
+@media only screen and (max-width: 1025px) {
+    #message_container {
+        top: 5%;
+    }
+
+    .margin-profile-field {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 5px;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .amend-button {
+        background: #666666;
+        text-align: center;
+    }
+}
+
+
+

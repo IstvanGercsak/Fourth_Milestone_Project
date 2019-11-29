@@ -9,7 +9,7 @@ def view_cart(request):
 
 def add_to_cart(request, id):
     if request.POST.get('quantity') == "":
-        messages.info(request, messages.INFO, "The input field is empty!")
+        messages.info(request, "The input field is empty!")
         return redirect(reverse('products'))
     else:
         quantity = int(request.POST.get('quantity'))
@@ -34,9 +34,10 @@ def adjust_cart(request, id):
         cart = request.session.get('cart', {})
 
     if quantity > 0:
+        messages.info(request, "You modified the number of the items!")
         cart[id] = quantity
     else:
-        cart.pop(id)
+        return redirect(reverse('view_cart'))
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

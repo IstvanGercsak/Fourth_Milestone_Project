@@ -4,8 +4,6 @@
 
 {% block page_title %} Login Page {% endblock %}
 
-{% block page_heading %} User login {% endblock %}
-
 {% block content %}
 
     <!-- Login section -->
@@ -15,10 +13,10 @@
             <form method="POST">
                 {% csrf_token %}
                 {{ login_form | as_bootstrap }}
-                <button type="submit" class="btn btn-success">Login</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Login</button>
             </form>
             <a href="{% url 'password_reset' %}">
-                <button class="btn btn-info">Forget your password?</button>
+                <button class="btn btn-info"><i class="fa fa-unlock-alt"></i> Forget your password?</button>
             </a>
         </div>
     </div>

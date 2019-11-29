@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='currency',
-            field=models.PositiveIntegerField(choices=[(1, 'EUR'), (2, 'USD'), (3, 'HUF')], default='EUR'),
+            field=models.PositiveIntegerField(choices=[(1, 'EUR'), (2, 'USD'), (3, 'HUF')], default='1'),
         ),
     ]
