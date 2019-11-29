@@ -61,8 +61,10 @@
                 <li>
                     <form action="{% url 'search' %}" method="GET" class="navigation-search">
                         {% csrf_token %}
-                        <input type="search" name="search" class="form-control-my" required minlength="3" aria-label="search">
-                        <button type="submit" class="btn btn-secondary search-button"><i class="fa fa-search fa-2x"></i></button>
+                        <input type="search" name="search" class="form-control-my" required minlength="3"
+                               aria-label="search">
+                        <button type="submit" class="btn btn-secondary search-button"><i class="fa fa-search fa-2x"></i>
+                        </button>
                     </form>
                 </li>
             </ul>
@@ -92,7 +94,30 @@
 
 <footer>
     <div class="container">
-        <p>Mady by Istvan Gercsak - Fourth Milestone Project</p>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <p>Fourth Milestone Project Made by Istvan Gercsak</p>
+            </div>
+            <div class="col-sm-6">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/istvangercsak/" target="_blank">
+                            <i class="fa fa-linkedin-square fa-3x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/IstvanGercsak" target="_blank">
+                            <i class="fa fa-github-square fa-3x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.ige-it.com/" target="_blank">
+                            <i class="fa fa-globe fa-3x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 <script>

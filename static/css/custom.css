@@ -9,7 +9,7 @@
 body {
     font-family: sans-serif;
     padding-top: 100px;
-    background: #fafafa;
+    background: #666666;
     color: black;
     font-weight: bold;
 }
@@ -27,6 +27,12 @@ footer {
     color: #A9A9A9;
 }
 
+footer p {
+    color: #00cc5f;
+    font-size: 22px;
+}
+
+
 /* Navigation */
 
 .search-button {
@@ -35,6 +41,7 @@ footer {
 
 .black-background {
     background: #333333;
+    border: 0;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -87,9 +94,10 @@ a:hover, a:visited, a:active, a:link {
     text-decoration: none;
 }
 
-h2, a {
+a, h2, h3, a > h3 {
     color: #c67605;
     transition: all 0.5s ease-in-out;
+    font-weight: bold;
 }
 
 #message_container {
@@ -102,6 +110,10 @@ h2, a {
 }
 
 /* Product */
+
+.product-title {
+    font-size: 26px;
+}
 
 .product {
     background-size: contain;
@@ -202,6 +214,7 @@ a:link, a:visited, a:active {
 
 
 .article-title {
+    color: #c67605;
     font-size: 36px;
     margin-top: 30px;
 }
@@ -253,13 +266,15 @@ a:link, a:visited, a:active {
     #message_container {
         top: 5%;
     }
-}
 
-@media only screen and (max-width: 1025px) {
     .margin-profile-field {
         margin-left: 0;
         margin-right: 0;
         padding: 5px;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 11px;
     }
 }
 
