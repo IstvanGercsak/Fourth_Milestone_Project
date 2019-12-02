@@ -199,7 +199,9 @@ a:link, a:visited, a:active {
     background-color: #fafafa;
     border: 0 #fafafa solid
 }
-
+p > input{
+    text-align: center;
+}
 /* Checkout */
 
 .display-none {
