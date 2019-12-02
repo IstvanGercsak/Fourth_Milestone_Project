@@ -5,9 +5,18 @@
 <!-- Products content -->
 
 {% block content %}
+    <div class="row text-center">
+        <button id="show-all" class="btn">All</button>
+        <button id="show-frontend" class="btn">FrontEnd</button>
+        <button id="show" class="btn">Middleware</button>
+        <button id="show-backend" class="btn">BackEnd</button>
+        <button id="hide" class="btn">Framework</button>
+    </div>
+
     <div class="row">
         {% for product in products %}
-            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 panel-default">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 panel-default"
+                 id="{{ product.type_id }}">
                 <div class="panel-body">
                     <div class="product"
                          style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
@@ -33,4 +42,20 @@
             </div>
         {% endfor %}
     </div>
+
+    <script>
+        $("#show-all").click(function () {
+            $("#frontend").show(1000);
+            $("#backend").show(1000);
+        });
+
+        $("#show-frontend").click(function () {
+            $("#frontend").toggle(1000);
+        });
+
+        $("#show-backend").click(function () {
+            $("#backend").toggle(1000);
+        });
+
+    </script>
 {% endblock %}
