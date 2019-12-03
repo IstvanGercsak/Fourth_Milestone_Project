@@ -135,6 +135,16 @@ a, h2 {
     margin: 0 auto;
 }
 
+.filter {
+    margin: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.filter:hover {
+    transition: all 0.5s ease-in-out;
+    background: darkgoldenrod;
+}
+
 caption p {
     word-wrap: break-word;
 }
@@ -199,9 +209,11 @@ a:link, a:visited, a:active {
     background-color: #fafafa;
     border: 0 #fafafa solid
 }
-p > input{
+
+p > input {
     text-align: center;
 }
+
 /* Checkout */
 
 .display-none {
@@ -277,6 +289,13 @@ p > input{
     font-size: 20px;
     padding: 10px;
     text-align: justify;
+}
+
+.comment-alert {
+    font-size: 28px;
+    margin: 5px;
+    color: orangered;
+    text-align: center;
 }
 
 /* Media query */
