@@ -27,11 +27,10 @@ footer {
     color: #A9A9A9;
 }
 
-footer p {
+.project-description {
     color: #00cc5f;
     font-size: 22px;
-    margin: auto auto;
-    padding-top: 3px;
+    margin-top: 13px;
 }
 
 
