@@ -8,6 +8,17 @@
 
 ## Description
 
+This project created as my fourth and last Milestone project at Code Institute. From technical perspective, the project
+is a full stack web application. From the business perspective this site is an online shop where we can buy training classes with secure payment. 
+Next to this main functionality we can manage our account, we can access for the feed page after login and there 
+we can see the news, sales and discounts. On the product page we can buy classes and we can filter between the given technologies 
+which we are interested in. After to pick a technology class we can put it on the cart and buy it. 
+We can write review or feedback for the product in order to inform the others about that class. There is a 
+blog section where we can read about. After we logged in we can write comments for those blog posts as well.
+
+- [View QA environment](https://online-shop-qa-branch.herokuapp.com/)
+- [View Master(Prod) environment](https://last-milestone-online-shop.herokuapp.com/)
+
 ## Index
 
 - I. [UX](#ux)
@@ -19,57 +30,112 @@
 
 ## UX
 
-### Colors
+### Colors & Icons
 
-
-
-### Icons
-
-
+- The four dominant color on the page is the grey, brown, green and the black letters.
+- I use favicon for the pages and use font awesome icons for the button/menu items/interactions to easily
+distinguish those elements on the pages.
 
 ### Responsive
 
+The web application is fully responsive and works properly and looks good on Mobile/Tablet/PC devices respectively.
 
-
-### User story
-
-
+### User stories
 
 #### Accounts
 
 - As a user, I want to register on the site
+- Aa a user, I want to get feedback after I register on the website 
+- As a user, I want to logged in right after the registration
+- As a user, I want to get feedback when there is something wrong in during the registration (Unique username and password,fields)
 - As a user, I want to log in the site
 - As a user, I want to log out from the site
+- As a user, I want to see my details
 - As a user, I want to change my details
 - As a user, I want to change my password
 - As a user, I want to reset my password in that case if I forget it.
 - As a user, I want to get email after password reset
+- As a user, I want to get feedback when I logged in
+- As a user, I want to get feedback if the password is wrong
 
-#### Cart
+#### Feed
 
-- As a user, 
-
-#### Checkout
-
-- As a user, 
+- As a user, I don't want to reach the page until I am not logged in
+- As a user, I want to see the Feeds after I logged in
 
 #### Products
 
-- As a user, 
+- As a user, I want to choose between product
+- As a user, I want to filter the product
+- As a user, I want to get feedback after I put an item into the cart
+- As a user, I want to see the product separately
+- As a user, I want to put the product from the separate product page
+- As a user, after the login I want to write review on the separate product page
+- As a user, I want to get feedback if I write a review
 
-### #Responsive
+#### Cart
 
-- As a user, 
+- As a user, I want to give one item in the cart
+- As a user, I want to give two or more item in the cart
+- As a user, I want to amend the quantity
+- As a user, I want to see next to cart item in the navigation bar that how many items I picked 
+- As a user, I want to see the sum products and sum value that I have to pay on the cart page
+- As a user, I want to reach the checkout page after clicking on the Checkout button
+- As a user,
 
+#### Checkout
+
+- As a user, I want to pay with my card details
+- As a user, I want to get feedback after the payment
+- As a user, I want to get feedback if there is something wrong with the payment(Field, Card, etc.)
+- As a user, I want to see the summary page about what I bought and how much should I pay
+
+#### Blog
+
+- As a user, I want to see the blog posts on the Blog page
+- As a user, I want to open a single blog post on a different page
+- As a user, I want to write comment for the blog post (After I logged in)
+- As a user, I want to get feedback if I commented a blog post.
+
+#### Search
+
+- As a user, I want to search after the products
+- As a user, I get feedback if there is no matching product on the page
 
 ### Mock up
 
 - **Created with [Balsamiq Mockups 3](https://balsamiq.com/) that is a user interface design tool**
     - **Log in page**:
-    ![Log in page](project-description/mockups/login.png)
+    ![Landing page](project-description/mockups/image.png)
     - **Register page**:
-    ![Sign out page](project-description/mockups/register.png)
-    
+    ![Login page](project-description/mockups/)
+    - ****:
+    ![Feed page](project-description/mockups/)
+    - ****:
+    ![Register page](project-description/mockups/)
+    - ****:
+    ![Change password page](project-description/mockups/)
+    - ****:
+    ![Password reset page ?????](project-description/mockups/)
+    - ****:
+    ![Profile page](project-description/mockups/)
+    - ****:
+    ![Update profile page](project-description/mockups/)
+    - ****:
+    ![Product page](project-description/mockups/)
+    - ****:
+    ![View product page](project-description/mockups/)
+    - ****:
+    ![Cart page](project-description/mockups/)
+    - ****:
+    ![Checkout page](project-description/mockups/)
+    - ****:
+    ![Blog page](project-description/mockups/)
+    - ****:
+    ![Blog article page](project-description/mockups/)
+    - ****:
+    ![404 error page](project-description/mockups/)
+        
 ## Technologies_Used
 
 - [HTML5](https://www.w3.org/html/)
@@ -81,6 +147,8 @@
     - Front End Framework for developing responsive websites.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
     - JavaScript is a lightweight interpreted or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages.
+- [JQuery 3.4.1](https://jquery.com)
+    - The project uses to simplify DOM manipulation.
 - [Git](https://git-scm.com/)
     - Git is a distributed version-control system for tracking changes in source code during software development.
 - [GitHub](https://github.com/)
@@ -106,26 +174,25 @@
 
 ## Features
 
-- Admin can can add new product
+- Admin can can add new product/blogpost/create feed
 - The user can add product in the cart
-- User can login
+- User can write review under the product
+- Filter between the technologies on the product page
+- User can login/logout
 - User can make payment
 - User can give review 
-- User can modify password
-- User can reset password if it is forgotten
-- 404 error page 
-- Store everything under the static folder on AWS
+- User can modify/reset password
+- 404 error page when there is a mistype in the url
+- Blog (Public)
+- Comment blogpost with logged in user
+- Search functionality between the products
+- Timeline after I log in
+- Store the static and media files on AWS
 - Branches (DEV, QA_branch, master)
 - Automated test and test coverage
-- Database sqlite for local and travis. PostgreSQL on Heroku for QA_branch and master brancy
+- Database sqlite for local and travis. PostgreSQL on Heroku for QA_branch and master branch
 - Travis CI running on sqlite database with DEV and QA_branch codebase
-- Blog (Public)
-- Check the orders
-- Search on the site after the items
-- Timeline after I log in
-- User comment timeline
-- Auction or bidding (Maybe)
-- Pagination if there is too much (Maybe) 
+- Responsive design
 
 ### AWS
 
@@ -135,15 +202,8 @@ You can see the AWS Setup description under this link [link](https://github.com/
 
 You can see the test description under this link [link](https://github.com/IstvanGercsak/Fourth_Milestone_Project-Online-shop/blob/master/Testing.MD)
 
-- Note that for historical reasons .travis.yml needs to be present on all active branches of your project.
-- Automated testing with Travis CI [link](https://travis-ci.org/)
-- run test locally:
-    - python manage.py test
-- Coverage:
-    - Install "pip install coverage"
-    - Coverage check "coverage run --source='.' manage.py test"
-    - Run Report with "coverage report"
-    - "coverage html" -> Creates htmlcov report folder 
+- Information about why I commit the .travis.yml file (Copied from the Travis official site):
+    - "Note that for historical reasons .travis.yml needs to be present on all active branches of your project."
     
 ### Deployment and version control:
 
@@ -151,20 +211,20 @@ I use git for version control
 
 - Local version control on DEV branch
 - Git commit after every given useful part of the project
-- Git push into my github repository (Parallel travis tests )
+- Git push into my github repository (Parallel runs the travis tests)
 - Merge from DEV branch to QA_branch
 - Automatic deploy on Heroku to QA application when the running Travis test is passed
-- Merge from QA_branch to master
-- Automatic deploy to Heroku master
-- Run the additional commands ("migrate","makemigration" when the database schema changed) 
+- Merge from QA_branch to master branch
+- Automatic deploy on Heroku to master branch
+- Run the additional commands ("migrate","makemigration" when the database schema changed. And run the "colletcstatic" command if it is necessary) 
 
 #### Branches
 - DEV:
     - Branch for developing new features locally
     - Database: Local DB (sqlite3)
-    - Tests: Travis automation tests 
+    - Tests: Locally runs test and run test on Travis to automate tests 
     - Static files: no bucket -> local static files
-- QA 
+- QA:
     - Branch for test the new features on Heroku
     - Database: PostgreSQL for the QA_branch
     - Tests: Travis automation tests
@@ -189,7 +249,7 @@ I use git for version control
 - For Architecture design I use MVT design pattern (Model-View-Template). Thanks for this I don't have to write raw sql queries.
 - Application and Database
     - Heroku with PostgreSQL (QA and master)
-    - Localhost with sqlite3 (DEV)
+    - Localhost with sqlite3 (DEV) (Automated test with travis is running on sqlite3 as well.)
     
 #### Security
 
