@@ -47,7 +47,7 @@ The web application is fully responsive and works properly and looks good on Mob
 - As a user, I want to register on the site
 - Aa a user, I want to get feedback after I register on the website 
 - As a user, I want to logged in right after the registration
-- As a user, I want to get feedback when there is something wrong in during the registration (Unique username and password,fields)
+- As a user, I want to get feedback when there is something wrong in during the registration (Unique username and password, fields)
 - As a user, I want to log in the site
 - As a user, I want to log out from the site
 - As a user, I want to see my details
@@ -81,7 +81,6 @@ The web application is fully responsive and works properly and looks good on Mob
 - As a user, I want to see next to cart item in the navigation bar that how many items I picked 
 - As a user, I want to see the sum products and sum value that I have to pay on the cart page
 - As a user, I want to reach the checkout page after clicking on the Checkout button
-- As a user,
 
 #### Checkout
 
@@ -102,39 +101,44 @@ The web application is fully responsive and works properly and looks good on Mob
 - As a user, I want to search after the products
 - As a user, I get feedback if there is no matching product on the page
 
+#### Error handling
+
+- As a user, I want to arrive on the 404 Error page if I mistype the url
+- As a user, I want to navigate back from the 404 error page
+
 ### Mock up
 
 - **Created with [Balsamiq Mockups 3](https://balsamiq.com/) that is a user interface design tool**
+    - **Landing page**:
+    ![Landing page](project-description/Mockups/PageMockups/LandingPage.png)
     - **Log in page**:
-    ![Landing page](project-description/mockups/image.png)
+    [Login page](project-description/Mockups/PageMockups/LoginPage.png)
     - **Register page**:
-    ![Login page](project-description/mockups/)
-    - ****:
-    ![Feed page](project-description/mockups/)
-    - ****:
-    ![Register page](project-description/mockups/)
-    - ****:
-    ![Change password page](project-description/mockups/)
-    - ****:
-    ![Password reset page ?????](project-description/mockups/)
-    - ****:
-    ![Profile page](project-description/mockups/)
-    - ****:
-    ![Update profile page](project-description/mockups/)
-    - ****:
-    ![Product page](project-description/mockups/)
-    - ****:
-    ![View product page](project-description/mockups/)
-    - ****:
-    ![Cart page](project-description/mockups/)
-    - ****:
-    ![Checkout page](project-description/mockups/)
-    - ****:
-    ![Blog page](project-description/mockups/)
-    - ****:
-    ![Blog article page](project-description/mockups/)
-    - ****:
-    ![404 error page](project-description/mockups/)
+    [Login page](project-description/Mockups/PageMockups/RegisterPage.png)
+    - **Feed page**:
+    [Feed page](project-description/Mockups/PageMockups/FeedPage.png)
+    - **Change password page**:
+    [Change password page](project-description/Mockups/PageMockups/ChangePasswordPage.png)
+    - **Password reset page**:
+    [Password reset page ?????](project-description/Mockups/PageMockups/??)
+    - **Profile page**:
+    [Profile page](project-description/Mockups/PageMockups/ProfilePage.png)
+    - **Update profile page**:
+    [Update profile page](project-description/Mockups/PageMockups/UpdateProfilePage.png)
+    - **Product page**:
+    ![Product page](project-description/Mockups/PageMockups/ProductPage.png)
+    - **View product page**:
+    [View product page](project-description/Mockups/PageMockups/ViewProductPage.png)
+    - **Cart page**:
+    [Cart page](project-description/Mockups/PageMockups/CartPage.png)
+    - **Checkout page**:
+    [Checkout page](project-description/Mockups/PageMockups/CheckoutPage.png)
+    - **Blog page**:
+    [Blog page](project-description/Mockups/PageMockups/BlogPage.png)
+    - **Blog article page**:
+    [Blog article page](project-description/Mockups/PageMockups/ArticleBlogPage.png)
+    - **404 error page**:
+    [404 error page](project-description/Mockups/PageMockups/404ErrorPage.png)
         
 ## Technologies_Used
 
@@ -184,7 +188,7 @@ The web application is fully responsive and works properly and looks good on Mob
 - User can modify/reset password
 - 404 error page when there is a mistype in the url
 - Blog (Public)
-- Comment blogpost with logged in user
+- Comment blog post with logged in user
 - Search functionality between the products
 - Timeline after I log in
 - Store the static and media files on AWS
