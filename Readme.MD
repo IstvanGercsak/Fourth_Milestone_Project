@@ -26,7 +26,7 @@ blog section where we can read about. After we logged in we can write comments f
 - III. [Features](#features)
 - IV. [AWS](#aws)
 - V. [Test](#test)
-- VI. [Application_hosts_and_databases](#application_hosts_and_databases)
+- VI. [Deployment_and_version_control](#deployment_and_version_control)
 
 ## UX
 
@@ -141,6 +141,7 @@ The web application is fully responsive and works properly and looks good on Mob
     [404 error page](project-description/Mockups/PageMockups/404ErrorPage.png)
         
 ## Technologies_Used
+[Up to top](#index)
 
 - [HTML5](https://www.w3.org/html/)
     - Hypertext Markup Language is the standard markup language for creating web pages and web applications.
@@ -198,18 +199,21 @@ The web application is fully responsive and works properly and looks good on Mob
 - Travis CI running on sqlite database with DEV and QA_branch codebase
 - Responsive design
 
-### AWS
+## AWS
+[Up to top](#index)
 
 You can see the AWS Setup description under this link [link](https://github.com/IstvanGercsak/Fourth_Milestone_Project-Online-shop/blob/master/Setup-AWS.MD)
        
-### Test
+## Test
+[Up to top](#index)
 
 You can see the test description under this link [link](https://github.com/IstvanGercsak/Fourth_Milestone_Project-Online-shop/blob/master/Testing.MD)
 
 - Information about why I commit the .travis.yml file (Copied from the Travis official site):
     - "Note that for historical reasons .travis.yml needs to be present on all active branches of your project."
     
-### Deployment and version control:
+## Deployment_and_version_control:
+[Up to top](#index)
 
 I use git for version control
 
@@ -223,6 +227,7 @@ I use git for version control
 - Run the additional commands ("migrate","makemigration" when the database schema changed. And run the "colletcstatic" command if it is necessary) 
 
 #### Branches
+
 - DEV:
     - Branch for developing new features locally
     - Database: Local DB (sqlite3)
