@@ -54,7 +54,3 @@ class EditProfileForm(UserChangeForm):
             'first_name',
             'last_name'
         )
-
-
-class EditPassword(PasswordChangeForm):
-    """ """
