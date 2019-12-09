@@ -14,9 +14,7 @@
                  style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
             <p class="article-title">{{ product.name }}</p>
             <p class="article-description">{{ product.description }}</p>
-
             <p class="product-price">{{ product.price }} {{ product.currency }}</p>
-
         </div>
     </div>
 
@@ -36,6 +34,7 @@
             </form>
         </div>
     </div>
+
     <!-- Review container section -->
 
     <div class="container">
@@ -69,6 +68,8 @@
                                 <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Add Review
                                 </button>
                             </div>
+                            <p class="text-center comment-alert">Please keep in mind that
+                                you can not change your review!!!</p>
                         </div>
                     </form>
                 </div>

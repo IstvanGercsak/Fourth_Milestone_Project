@@ -27,11 +27,10 @@ footer {
     color: #A9A9A9;
 }
 
-footer p {
+.project-description {
     color: #00cc5f;
     font-size: 22px;
-    margin: auto auto;
-    padding-top: 3px;
+    margin-top: 13px;
 }
 
 
@@ -135,6 +134,16 @@ a, h2 {
     margin: 0 auto;
 }
 
+.filter {
+    margin: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.filter:hover {
+    transition: all 0.5s ease-in-out;
+    background: darkgoldenrod;
+}
+
 caption p {
     word-wrap: break-word;
 }
@@ -198,6 +207,10 @@ a:link, a:visited, a:active {
     padding: 0;
     background-color: #fafafa;
     border: 0 #fafafa solid
+}
+
+p > input {
+    text-align: center;
 }
 
 /* Checkout */
@@ -275,6 +288,13 @@ a:link, a:visited, a:active {
     font-size: 20px;
     padding: 10px;
     text-align: justify;
+}
+
+.comment-alert {
+    font-size: 28px;
+    margin: 5px;
+    color: orangered;
+    text-align: center;
 }
 
 /* Media query */

@@ -6,6 +6,7 @@
 
 # Ignore Environmental variable, secret key and Stripe keys
 env.py
+/dotenv
 
 # Python cache files
 __pycache__/

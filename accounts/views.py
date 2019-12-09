@@ -48,7 +48,7 @@ def login(request):
 
 def registration(request):
     if request.user.is_authenticated:
-        return redirect(reverse("index"))
+        return redirect(reverse("view_feed"))
 
     if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
@@ -61,7 +61,7 @@ def registration(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
-                return redirect(reverse("index"))
+                return redirect(reverse("view_feed"))
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:
