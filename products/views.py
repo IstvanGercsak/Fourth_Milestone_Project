@@ -7,7 +7,8 @@ from django.contrib import messages
 # Create your views here.
 def all_products(request):
     products = Product.objects.all()
-    return render(request, "products.html", {"products": products})
+    is_empty = True
+    return render(request, "products.html", {"products": products, "is_empty": is_empty})
 
 
 def view_product(request, slug):
