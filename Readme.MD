@@ -259,6 +259,8 @@ I use git for version control
 - Application and Database
     - Heroku with PostgreSQL (QA and master)
     - Localhost with sqlite3 (DEV) (Automated test with travis is running on sqlite3 as well.)
+- **Database schema**:
+    ![Log in page](project-description/database-schema/db.png)
     
 #### Security
 
