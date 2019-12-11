@@ -33,7 +33,7 @@ blog section where we can read about. After we logged in we can write comments f
 ### Colors & Icons
 
 - The four dominant color on the page is the grey, brown, green and the black letters.
-- I use favicon for the pages and use font awesome icons for the button/menu items/interactions to easily
+- I use favicon for the pages and use font awesome icons for the buttons/menu items/interactions to easily
 distinguish those elements on the pages.
 
 ### Responsive
@@ -178,6 +178,7 @@ The web application is fully responsive and works properly and looks good on Mob
     - AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources. IAM is a feature of your AWS account offered at no additional charge.
 
 ## Features
+[Up to top](#index)
 
 - Admin can can add new product/blogpost/create feed
 - The user can add product in the cart
@@ -242,27 +243,29 @@ I use git for version control
     - Branch for stable production environment on Heroku
     - Database: PostgreSQL for the master branch
     - Tests: There is no running test on master
-    - Static files: AWS bucket for QA 
+    - Static files: AWS bucket for master(Prod) 
 
 - Before every deployment:
     - Upload database schema:
         - Deploy new version of code to QA or PROD
         - Change url in env.py and type the "migrate" and "makemigrations" command to upgrade db schema
-        - Run "collectstatic" command for the right branches
     - **env.py file**:
     ![Log in page](project-description/additional_pictures_for_readme/env_file.JPG)
 
 
-#### Application_hosts_and_databases
+#### Application hosts and databases
 
 - For Architecture design I use MVT design pattern (Model-View-Template). Thanks for this I don't have to write raw sql queries.
 - Application and Database
     - Heroku with PostgreSQL (QA and master)
     - Localhost with sqlite3 (DEV) (Automated test with travis is running on sqlite3 as well.)
+- **Database schema**:
+    ![Log in page](project-description/database-schema/db.png)
     
 #### Security
 
-- Django authentication
+- Django authentication:
+    - Django comes with a user authentication system. It handles user accounts, groups, permissions and cookie-based user sessions
 - Secret keys and confidential data:
     - Locally:
         - env.py file contains
