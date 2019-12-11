@@ -74,7 +74,11 @@
                     </form>
                 </div>
             </div>
+        {% else %}
+            <h2 class="text-center">To write review, please log in
+                <a href="{% url 'login' %}"> >>here<< </a>
+            </h2>
+            </div>
         {% endif %}
-    </div>
 
 {% endblock %}
