@@ -14,16 +14,15 @@
         <div class="row text-center">
             <button id="show-all" class="btn btn-light filter">All</button>
             <button id="show-frontend" class="btn btn-success filter">Front-End</button>
-            <button id="show" class="btn btn-info filter">Middleware</button>
+            <button id="show-middleware" class="btn btn-info filter">Middleware</button>
             <button id="show-backend" class="btn btn-danger filter">Back-End</button>
-            <button id="hide" class="btn btn-warning filter">Framework</button>
+            <button id="show-framework" class="btn btn-warning filter">Framework</button>
         </div>
     {% endif %}
 
     <div class="row">
         {% for product in products %}
-            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 panel-default"
-                 id="{{ product.type_id }}">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 panel-default {{ product.type_id }}">
                 <div class="panel-body">
                     <div class="product"
                          style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
@@ -52,27 +51,38 @@
 
     <script>
         $("#show-all").click(function () {
-            $("#frontend").show(1000);
-            $("#backend").show(1000);
-            $("#middleware").show(1000);
-            $("#framework").show(1000);
-
+            $(".frontend").show(1000);
+            $(".backend").show(1000);
+            $(".middleware").show(1000);
+            $(".framework").show(1000);
         });
 
         $("#show-frontend").click(function () {
-            $("#frontend").toggle(1000);
+            $(".frontend").show(1000);
+            $(".backend").hide(1000);
+            $(".middleware").hide(1000);
+            $(".framework").hide(1000);
         });
 
         $("#show-backend").click(function () {
-            $("#backend").toggle(1000);
+            $(".backend").show(1000);
+            $(".frontend").hide(1000);
+            $(".middleware").hide(1000);
+            $(".framework").hide(1000);
         });
 
         $("#show-middleware").click(function () {
-            $("#middleware").toggle(1000);
+            $(".middleware").show(1000);
+            $(".frontend").hide(1000);
+            $(".backend").hide(1000);
+            $(".framework").hide(1000);
         });
 
         $("#show-framework").click(function () {
-            $("#framework").toggle(1000);
+            $(".framework").show(1000);
+            $(".frontend").hide(1000);
+            $(".backend").hide(1000);
+            $(".middleware").hide(1000);
         });
     </script>
 {% endblock %}
