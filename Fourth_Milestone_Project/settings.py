@@ -16,7 +16,6 @@ if os.path.exists('env.py'):
     import env
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-AWS_DEFAULT_ACL='public-read'
 
 # QA
 if os.environ.get('QA'):
@@ -85,8 +84,8 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=94608000'
 }
 
-AWS_STORAGE_BUCKET_NAME = "test"
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_DEFAULT_ACL = None
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
