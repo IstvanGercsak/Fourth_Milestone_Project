@@ -6,5 +6,4 @@ from products.models import Product
 def search(request):
     products = Product.objects.filter(name__contains=request.GET['search'])
     is_empty = bool(products)
-    print(is_empty)
     return render(request, "products.html", {"products": products, "is_empty": is_empty})
