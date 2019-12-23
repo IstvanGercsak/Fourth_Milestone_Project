@@ -1,11 +1,5 @@
 /* General */
 
-.alert-error {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-}
-
 body {
     font-family: sans-serif;
     padding-top: 100px;
@@ -321,6 +315,3 @@ p > input {
         text-align: center;
     }
 }
-
-
-
