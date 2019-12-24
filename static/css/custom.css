@@ -344,3 +344,9 @@ legend {
         text-align: center;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    ul {
+        margin-left: -50px;
+    }
+}
