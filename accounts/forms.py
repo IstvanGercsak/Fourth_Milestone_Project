@@ -47,6 +47,11 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class EditProfileForm(UserChangeForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    username = forms.CharField(required=True, min_length=5)
+
     class Meta:
         model = User
         fields = (

@@ -27,6 +27,12 @@ footer {
     margin-top: 13px;
 }
 
+.alert-error {
+    margin-top: 10px;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
 
 /* Navigation */
 
@@ -106,11 +112,17 @@ a, h2 {
 
 #message_container {
     margin: 0 auto;
+    text-align: center;
     width: 35%;
     position: fixed;
-    top: 15%;
+    top: 60px;
     left: 50px;
     opacity: 0.7;
+    z-index: 1;
+}
+
+.btn-danger {
+    z-index: 2;
 }
 
 /* Product */
@@ -295,7 +307,9 @@ p > input {
 
 @media only screen and (max-width: 1025px) {
     #message_container {
-        top: 5%;
+        text-align: left;
+        top: 45px;
+        width: 50%;
     }
 
     .margin-profile-field {
@@ -306,6 +320,8 @@ p > input {
 
     .navbar-nav > li > a {
         font-size: 11px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
 
