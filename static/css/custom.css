@@ -121,6 +121,10 @@ a, h2 {
     z-index: 1;
 }
 
+.alert-message {
+    z-index: 1;
+}
+
 .btn-danger {
     z-index: 2;
 }
@@ -203,6 +207,11 @@ a:link, a:visited, a:active {
     padding: 5px;
 }
 
+.edit-return-button {
+    text-align: center;
+    margin: 10px;
+}
+
 /* Cart */
 
 .padding-zero {
@@ -223,6 +232,10 @@ p > input {
 
 .display-none {
     display: none;
+}
+
+legend {
+    color: #fafafa;
 }
 
 /* User detail */
