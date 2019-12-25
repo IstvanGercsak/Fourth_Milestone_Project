@@ -12,10 +12,6 @@ class MakePaymentForm(forms.Form):
     expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=False)
     stripe_id = forms.CharField(widget=forms.HiddenInput)
 
-    def clean_credit_card_number(self):
-        credit_card_number = self.cleaned_data.get("credit_card_number")
-        return self.clean_credit_card_number()
-
 
 class OrderForm(forms.ModelForm):
     class Meta:

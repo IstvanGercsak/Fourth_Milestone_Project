@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
+from .forms import UserLoginForm, UserRegistrationForm, UserCreationForm, EditProfileForm
 
 
 # Create your tests here.
-class AccountsTesCase(TestCase):
+class AccountsTestCase(TestCase):
     def setUp(self):
         """ Create a mock user for testing """
         self.credentials = {
@@ -78,4 +79,36 @@ class AccountsTesCase(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "change-password.html")
 
-    # Testing the input fields
+    # Testing the forms
+
+    def test_right_login_form(self):
+        """ Test the UserLoginForm """
+        form_data = {'username': 'Istvan', 'password': 'password'}
+        form = UserLoginForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_missing_username_login_form(self):
+        """ Test the UserLoginForm """
+        form_data = {'username': '', 'password': 'password'}
+        form = UserLoginForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
+    def test_missing_password_login_form(self):
+        """ Test the UserLoginForm """
+        form_data = {'username': 'Istvan', 'password': ''}
+        form = UserLoginForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
+    def test_UserRegistrationForm(self):
+        """ Test UserRegistrationForm validation """
+        form_data = {
+            "first_name": "",
+            "last_name": "last_name",
+            "email": "email",
+            "username": "username",
+            "password1": "password1",
+            "password2": "password2"
+        }
+        form = UserRegistrationForm(data=form_data)
+        self.assertFalse(form.is_valid())
+

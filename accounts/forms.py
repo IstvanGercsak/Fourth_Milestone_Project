@@ -11,8 +11,8 @@ class UserLoginForm(forms.Form):
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    email = forms.CharField(required=True)
-    username = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    username = forms.CharField(required=True, max_length=20)
 
     password1 = forms.CharField(
         label="Password",

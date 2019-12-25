@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from .models import Order
+from .forms import MakePaymentForm, OrderForm
 
 
 # Create your tests here.
@@ -69,3 +70,30 @@ class CheckoutTesCase(TestCase):
         """ Test county field """
         test_model = Order(county="Dublin")
         self.assertEqual(str(test_model.county), "Dublin")
+
+    # Testing the forms
+    def test_payment_login_form(self):
+        """ Test the MakePaymentForm """
+        form_data = {
+            'credit_card_number': 4242424242424242,
+            'cvv': 123,
+            'expiry_month': 3,
+            'expiry_year': 2021,
+            'stripe_id': 42}
+        form = MakePaymentForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_order_payment_login_form(self):
+        """ Test the OrderForm """
+        form_data = {
+            'full_name': 'Istvan Gercsak',
+            'phone_number': 353891234567,
+            'country': 'Ireland',
+            'postcode': 'Dublin 2',
+            'town_or_city': 'Dublin',
+            'street_address1': 'Test Street',
+            'street_address2': 'Test Street 2',
+            'county': 'Dublin'
+        }
+        form = OrderForm(data=form_data)
+        self.assertTrue(form.is_valid())
