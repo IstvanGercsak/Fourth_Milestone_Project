@@ -56,16 +56,17 @@
                 </div>
             </div>
 
-            <div class="col-sm-6"></div>
-            <div class="col-sm-3 col-xs-3">
+            <div class="col-sm-12 col-xs-12 edit-return-button">
                 <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Submit</button>
             </div>
 
         </form>
-        <div class="col-sm-3 col-xs-3">
-            <a href="{% url 'profile' %}">
-                <button class="btn btn-info"><i class="fa fa-arrow-left"></i> Return</button>
-            </a>
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 edit-return-button">
+                <a href="{% url 'profile' %}">
+                    <button class="btn btn-info"><i class="fa fa-arrow-left"></i> Return</button>
+                </a>
+            </div>
         </div>
     </div>
 {% endblock %}

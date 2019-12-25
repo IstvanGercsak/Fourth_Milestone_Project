@@ -8,19 +8,20 @@
 
     <!-- Product detail section -->
 
-    <div class="container">
         <div class="row">
             <div class="product"
                  style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
-            <p class="article-title">{{ product.name }}</p>
-            <p class="article-description">{{ product.description }}</p>
+            <p class="article-title product-container">{{ product.name }}</p>
+            <p class="article-description product-container">{{ product.description_section_1 }}</p>
+            <p class="article-description product-container">{{ product.description_section_2 }}</p>
+            <p class="article-description product-container">{{ product.description_section_3 }}</p>
+            <p class="article-description product-container">{{ product.description_section_4 }}</p>
+            <p class="article-description product-container">{{ product.description_section_5 }}</p>
             <p class="product-price">{{ product.price }} {{ product.currency }}</p>
         </div>
-    </div>
 
     <!-- Add to cart -->
 
-    <div class="container">
         <div class="row">
             <form method="post" action="{% url 'add_to_cart' product.id %}">
                 {% csrf_token %}
@@ -33,11 +34,9 @@
                 </div>
             </form>
         </div>
-    </div>
 
     <!-- Review container section -->
 
-    <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 {% for review in reviews %}
@@ -48,11 +47,9 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
 
     <!-- Add review container section -->
 
-    <div class="container">
         {% if user.is_authenticated %}
             <div class="row">
                 <div class="col-sm-12">
@@ -68,9 +65,9 @@
                                 <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Add Review
                                 </button>
                             </div>
-                            <p class="text-center comment-alert">Please keep in mind that
-                                you can not change your review!!!</p>
                         </div>
+                        <p class="text-center comment-alert">Please keep in mind that
+                            you can not change your review!!!</p>
                     </form>
                 </div>
             </div>
@@ -78,7 +75,6 @@
             <h2 class="text-center">To write review, please log in
                 <a href="{% url 'login' %}"> >>here<< </a>
             </h2>
-            </div>
         {% endif %}
 
 {% endblock %}

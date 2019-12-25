@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from django.core.exceptions import ValidationError
 
 
 class UserLoginForm(forms.Form):
@@ -12,8 +11,8 @@ class UserLoginForm(forms.Form):
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    email = forms.CharField(required=True)
-    username = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    username = forms.CharField(required=True, max_length=20)
 
     password1 = forms.CharField(
         label="Password",
@@ -47,6 +46,11 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class EditProfileForm(UserChangeForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    username = forms.CharField(required=True, min_length=5)
+
     class Meta:
         model = User
         fields = (

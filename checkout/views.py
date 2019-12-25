@@ -15,7 +15,6 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     cart = request.session.get('cart', {})
-    total = 0
 
     if bool(cart) is False:
         messages.error(request, "Your cart is empty!")
@@ -24,12 +23,13 @@ def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
-
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()
             order.save()
 
+            cart = request.session.get('cart', {})
+            total = 0
             for id, quantity in cart.items():
                 product = get_object_or_404(Product, pk=id)
                 total += quantity * product.price
@@ -51,7 +51,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.error(request, "You have successfully paid")
+                messages.success(request, "You have successfully paid")
                 request.session['cart'] = {}
                 return redirect(reverse('products'))
             else:

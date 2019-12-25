@@ -1,11 +1,5 @@
 /* General */
 
-.alert-error {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-}
-
 body {
     font-family: sans-serif;
     padding-top: 100px;
@@ -30,9 +24,15 @@ footer {
 .project-description {
     color: #00cc5f;
     font-size: 22px;
-    margin-top: 13px;
+    margin-top: 5px;
 }
 
+.alert-error {
+    margin-top: 10px;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
 
 /* Navigation */
 
@@ -88,6 +88,21 @@ footer {
     background-color: #00cc5f;
 }
 
+/* Register */
+
+.register-container {
+    margin-left: 150px;
+    margin-right: 150px
+}
+
+/* Login */
+
+.login-container {
+    margin-bottom: 450px;
+    margin-left: 150px;
+    margin-right: 150px
+}
+
 /* Feed */
 
 .feed-header {
@@ -112,14 +127,29 @@ a, h2 {
 
 #message_container {
     margin: 0 auto;
+    text-align: center;
     width: 35%;
     position: fixed;
-    top: 15%;
+    top: 60px;
     left: 50px;
     opacity: 0.7;
+    z-index: 1;
+}
+
+.alert-message {
+    z-index: 1;
+}
+
+.btn-danger {
+    z-index: 2;
 }
 
 /* Product */
+
+.product-container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
 
 .product-title {
     font-size: 26px;
@@ -197,6 +227,11 @@ a:link, a:visited, a:active {
     padding: 5px;
 }
 
+.edit-return-button {
+    text-align: center;
+    margin: 10px;
+}
+
 /* Cart */
 
 .padding-zero {
@@ -217,6 +252,10 @@ p > input {
 
 .display-none {
     display: none;
+}
+
+legend {
+    color: #fafafa;
 }
 
 /* User detail */
@@ -274,7 +313,7 @@ p > input {
 }
 
 .comment-button {
-    text-align: right;
+    text-align: center;
 }
 
 .comment-author {
@@ -292,7 +331,7 @@ p > input {
 
 .comment-alert {
     font-size: 28px;
-    margin: 5px;
+    margin: 30px;
     color: orangered;
     text-align: center;
 }
@@ -301,7 +340,9 @@ p > input {
 
 @media only screen and (max-width: 1025px) {
     #message_container {
-        top: 5%;
+        text-align: left;
+        top: 45px;
+        width: 50%;
     }
 
     .margin-profile-field {
@@ -312,6 +353,8 @@ p > input {
 
     .navbar-nav > li > a {
         font-size: 11px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
 
@@ -322,5 +365,14 @@ p > input {
     }
 }
 
+@media only screen and (max-width: 500px) {
+    .login-container {
+        margin-bottom: 150px;
+        margin-left: 10px;
+        margin-right: 10px
+    }
 
-
+    ul {
+        margin-left: -50px;
+    }
+}
