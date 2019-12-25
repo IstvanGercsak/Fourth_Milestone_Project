@@ -1,5 +1,8 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.apps import apps
+from .apps import CartConfig
+from .views import add_to_cart
 
 
 # Create your tests here.
@@ -25,3 +28,7 @@ class CartTesCase(TestCase):
         page = self.client.get("/cart/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "cart.html")
+
+    def test_blog_apps(self):
+        self.assertEqual(CartConfig.name, 'cart')
+        self.assertEqual(apps.get_app_config('cart').name, 'cart')

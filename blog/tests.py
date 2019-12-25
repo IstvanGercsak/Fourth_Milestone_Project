@@ -1,5 +1,7 @@
 from django.test import TestCase
 from .models import Blog
+from django.apps import apps
+from .apps import BlogConfig
 
 
 # Create your tests here.
@@ -26,3 +28,7 @@ class BlogTest(TestCase):
         """ Test blog slug field """
         test_blog_slug = Blog(slug="slug_test")
         self.assertEqual(str(test_blog_slug.slug), "slug_test")
+
+    def test_blog_apps(self):
+        self.assertEqual(BlogConfig.name, 'blog')
+        self.assertEqual(apps.get_app_config('blog').name, 'blog')

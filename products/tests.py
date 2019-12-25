@@ -1,11 +1,19 @@
 from django.test import TestCase
 from .models import Product
+from .apps import ProductsConfig
+from django.apps import apps
 
 
 # Create your tests here.
 
 class ProductTest(TestCase):
     """ Here we'll define the tests that we'll run against our Product moduls """
+
+    # Test view
+    def test_porduct_vew(self):
+        page = self.client.get("/products/")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "products.html")
 
     # Test models
 
@@ -28,3 +36,7 @@ class ProductTest(TestCase):
         """ Test product slug field """
         test_product_slug = Product(slug="slug_test")
         self.assertEqual(str(test_product_slug.slug), "slug_test")
+
+    def test_checkout_apps(self):
+        self.assertEqual(ProductsConfig.name, 'products')
+        self.assertEqual(apps.get_app_config('products').name, 'products')

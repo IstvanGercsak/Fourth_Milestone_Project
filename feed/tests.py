@@ -1,6 +1,8 @@
 from django.test import TestCase
 from .models import Feed
 from django.contrib.auth.models import User
+from .apps import FeedConfig
+from django.apps import apps
 
 
 # Create your tests here.
@@ -33,8 +35,14 @@ class FeedTest(TestCase):
         """ Test feed title """
         test_feed_title = Feed(title="Feed title")
         self.assertEqual(str(test_feed_title.title), "Feed title")
+        self.assertEqual(str(test_feed_title.title), test_feed_title.title)
 
     def test_feed_description(self):
         """ Test feed description """
         test_feed_description = Feed(description="Feed description")
         self.assertEqual(str(test_feed_description.description), "Feed description")
+
+    def test_checkout_apps(self):
+        self.assertEqual(FeedConfig.name, 'feed')
+        self.assertEqual(apps.get_app_config('feed').name, 'feed')
+

@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
-from .forms import UserLoginForm, UserRegistrationForm, UserCreationForm, EditProfileForm
+from .forms import UserLoginForm, UserRegistrationForm
+from django.apps import apps
+from .apps import AccountsConfig
 
 
 # Create your tests here.
@@ -112,3 +114,6 @@ class AccountsTestCase(TestCase):
         form = UserRegistrationForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+    def test_account_apps(self):
+        self.assertEqual(AccountsConfig.name, 'accounts')
+        self.assertEqual(apps.get_app_config('accounts').name, 'accounts')

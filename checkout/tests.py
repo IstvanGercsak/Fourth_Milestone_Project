@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.apps import apps
 from .models import Order
 from .forms import MakePaymentForm, OrderForm
+from .apps import CheckoutConfig
 
 
 # Create your tests here.
@@ -97,3 +99,9 @@ class CheckoutTesCase(TestCase):
         }
         form = OrderForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+        # Test apps.py
+
+    def test_checkout_apps(self):
+        self.assertEqual(CheckoutConfig.name, 'checkout')
+        self.assertEqual(apps.get_app_config('checkout').name, 'checkout')
