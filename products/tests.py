@@ -21,11 +21,20 @@ class ProductTest(TestCase):
         """ Test product name field """
         test_product = Product(name="A product")
         self.assertEqual(str(test_product.name), "A product")
+        self.assertEqual(str(test_product.name), test_product.name)
+
+    def test_str(self):
+        test_product = Product(name="A product")
+        self.assertEqual("A product", str(test_product))
 
     def test_description(self):
         """ Test product description field """
-        test_product = Product(description="Description")
-        self.assertEqual(str(test_product.description), "Description")
+        test_product_1 = Product(description_section_1="Description")
+        test_product_2 = Product(description_section_2="Description")
+        test_product_3 = Product(description_section_3="Description")
+        self.assertEqual(str(test_product_1.description_section_1), "Description")
+        self.assertEqual(str(test_product_2.description_section_2), "Description")
+        self.assertEqual(str(test_product_3.description_section_3), "Description")
 
     def test_str(self):
         """ Test product price field """

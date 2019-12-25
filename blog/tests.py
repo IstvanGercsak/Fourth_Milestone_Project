@@ -21,8 +21,12 @@ class BlogTest(TestCase):
 
     def test_blog_description(self):
         """ Test blog description field """
-        test_blog_description = Blog(description="Description")
-        self.assertEqual(str(test_blog_description.description), "Description")
+        test_blog_description_1 = Blog(description_section_1="Description")
+        test_blog_description_2 = Blog(description_section_2="Description")
+        test_blog_description_3 = Blog(description_section_3="Description")
+        self.assertEqual(str(test_blog_description_1.description_section_1), "Description")
+        self.assertEqual(str(test_blog_description_2.description_section_2), "Description")
+        self.assertEqual(str(test_blog_description_3.description_section_3), "Description")
 
     def test_blog_slug(self):
         """ Test blog slug field """

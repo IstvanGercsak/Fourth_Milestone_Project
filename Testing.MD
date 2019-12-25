@@ -298,12 +298,13 @@ For Manual testing me and some of my friend and acquaintances tested the web app
 
 In the python console I run the "python manage.py test" command
 
-- Coverage:
+- Coverage: [ 80% ]
     - Install "pip install coverage"
     - Coverage check "coverage run --source='.' manage.py test"
     - Run Report with "coverage report"
     - "coverage html" -> Creates htmlcov report folder locally
-    - ![Coverage screenshot]()
+    - I put the htmlcov folder in the .gitignore file 
+    - ![Coverage screenshot](project-description/coverage/coverage_80.JPG)
 
 ### Cloud
 

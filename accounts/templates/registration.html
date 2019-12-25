@@ -8,14 +8,19 @@
 
 {% block content %}
 
-    <p>If you already have an account, you can <a href="{% url "login" %}">Sign in</a></p>
+
 
     <!-- Registration section -->
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ registration_form | as_bootstrap }}
-        <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
-    </form>
-
+    <div class="register-container">
+        <div class="row">
+            <p>If you already have an account, you can <a href="{% url "login" %}">Sign in</a></p>
+            <form method="POST">
+                {% csrf_token %}
+                {{ registration_form | as_bootstrap }}
+                <div class="col-sm-12 col-xs-12 edit-return-button">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

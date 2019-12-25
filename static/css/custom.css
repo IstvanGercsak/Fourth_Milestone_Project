@@ -24,7 +24,7 @@ footer {
 .project-description {
     color: #00cc5f;
     font-size: 22px;
-    margin-top: 13px;
+    margin-top: 5px;
 }
 
 .alert-error {
@@ -88,6 +88,21 @@ footer {
     background-color: #00cc5f;
 }
 
+/* Register */
+
+.register-container {
+    margin-left: 150px;
+    margin-right: 150px
+}
+
+/* Login */
+
+.login-container {
+    margin-bottom: 450px;
+    margin-left: 150px;
+    margin-right: 150px
+}
+
 /* Feed */
 
 .feed-header {
@@ -130,6 +145,11 @@ a, h2 {
 }
 
 /* Product */
+
+.product-container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
 
 .product-title {
     font-size: 26px;
@@ -293,7 +313,7 @@ legend {
 }
 
 .comment-button {
-    text-align: right;
+    text-align: center;
 }
 
 .comment-author {
@@ -311,7 +331,7 @@ legend {
 
 .comment-alert {
     font-size: 28px;
-    margin: 5px;
+    margin: 30px;
     color: orangered;
     text-align: center;
 }
@@ -346,6 +366,12 @@ legend {
 }
 
 @media only screen and (max-width: 500px) {
+    .login-container {
+        margin-bottom: 150px;
+        margin-left: 10px;
+        margin-right: 10px
+    }
+
     ul {
         margin-left: -50px;
     }
