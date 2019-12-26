@@ -88,6 +88,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=94608000'
 }
 
+
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = development
