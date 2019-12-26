@@ -1,22 +1,25 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AuthenticateMe</title>
+    <title>{% block page_title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
 </head>
 <body>
+
 <!-- Fixed masthead -->
-<nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
+
+<nav class="navbar navbar-masthead navbar-fixed-top black-background">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -26,11 +29,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Ecommerce</a>
+            {% if user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'view_feed' %}">E-knowldege</a>
+            {% else %}
+                <a class="navbar-brand" href="/">E-knowldege</a>
+            {% endif %}
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+        <div id="navbar" class="navbar-collapse collapse black-background">
+            <ul class="nav navbar-nav navbar-right black-background">
                 {% if user.is_authenticated %}
+                    <li><a href="{% url "view_feed" %}">
+                        <i class="fa fa-star"></i> Feed</a></li>
                     <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 {% else %}
@@ -38,33 +47,92 @@
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                 {% endif %}
                 <li>
+                    <a href="{% url "products" %}">
+                        <i class="fa fa-braille"></i> Products</a>
+                </li>
+                <li>
                     <a href="{% url 'view_cart' %}">
-                        <i class="fa fa-shipping-cart"></i> Cart
+                        <i class="fa fa-cart-plus"></i> Cart
                         {% if product_count > 0 %}
                             <label class="badge badge-warning">{{ product_count }}</label>
                         {% endif %}
                     </a>
                 </li>
+                <li>
+                    <a href="{% url 'articles:view_blog' %}">
+                        <i class="fa fa-pencil"></i> Blog</a>
+                </li>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" class="navigation-search">
+                        {% csrf_token %}
+                        <input type="search" name="search" class="form-control-my" required minlength="3"
+                               aria-label="search">
+                        <button type="submit" class="btn btn-secondary search-button"><i class="fa fa-search fa-2x"></i>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-{% if messages %}
-    <div class="alert alert-success">
-        <div class="messages">
-            {% for message in messages %}
+
+<!-- Messages -->
+
+<div id="message_container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible">
                 {{ message }}
-            {% endfor %}
-        </div>
-    </div>
-{% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<!-- Content -->
+
 <div class="container">
     {% block content %} {% endblock %}
 </div>
+
+<!-- Footer -->
+
 <footer>
     <div class="container">
-        <p>Made by Code Institute bootcampers</p>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <p class="project-description">Fourth Milestone Project Made by Istvan Gercsak</p>
+            </div>
+            <div class="col-sm-6">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/istvangercsak/" target="_blank">
+                            <i class="fa fa-linkedin-square fa-4x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/IstvanGercsak" target="_blank">
+                            <i class="fa fa-github-square fa-4x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.ige-it.com/" target="_blank">
+                            <i class="fa fa-globe fa-4x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="mailto:istvan.gercsak@gmail.com?subject=Interest">
+                            <i class="fa fa-envelope-square fa-4x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
+<script>
+    setTimeout(function () {
+        message_container.style.display = "none";
+    }, 3000);
+</script>
 </body>
 </html>

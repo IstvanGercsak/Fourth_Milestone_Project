@@ -1,7 +1,16 @@
+/* General */
+
 body {
-    font-family: Arial;
+    font-family: sans-serif;
     padding-top: 100px;
-    background: darkgray;
+    background: #666666;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover, a:focus {
+    color: #00cc5f;
+    text-decoration: underline
 }
 
 footer {
@@ -12,12 +21,61 @@ footer {
     color: #A9A9A9;
 }
 
-.icon-bar {
-    background-color: #ff9d91;
+.project-description {
+    color: #00cc5f;
+    font-size: 22px;
+    margin-top: 5px;
 }
 
-.accountform {
-    padding-top: 20px;
+.alert-error {
+    margin-top: 10px;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
+
+/* Navigation */
+
+.search-button {
+    padding: 0;
+}
+
+.black-background {
+    background: #333333;
+    border: 0;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #dddddd;
+!important;
+}
+
+.nav-color {
+    background: #c67605;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-search {
+    padding: 10px;
+}
+
+.form-control-my {
+    height: calc(1.5em + 0.75rem + 2px);
+    padding-left: 5px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.icon-bar {
+    background-color: #ff9d91;
 }
 
 .badge {
@@ -26,11 +84,75 @@ footer {
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
     border-radius: 9px;
+    margin: 0;
+    background-color: #00cc5f;
 }
 
-.label-warning[href],
-.badge-warning[href] {
-    background-color: #c67605;
+/* Register */
+
+.register-container {
+    margin-left: 150px;
+    margin-right: 150px
+}
+
+/* Login */
+
+.login-container {
+    margin-bottom: 450px;
+    margin-left: 150px;
+    margin-right: 150px
+}
+
+/* Feed */
+
+.feed-header {
+    color: #c67605;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: #00cc5f solid 2px;
+}
+
+/* Content/Template */
+
+a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+}
+
+a, h2 {
+    color: #c67605;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+#message_container {
+    margin: 0 auto;
+    text-align: center;
+    width: 35%;
+    position: fixed;
+    top: 60px;
+    left: 50px;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.alert-message {
+    z-index: 1;
+}
+
+.btn-danger {
+    z-index: 2;
+}
+
+/* Product */
+
+.product-container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.product-title {
+    font-size: 26px;
 }
 
 .product {
@@ -40,6 +162,16 @@ footer {
     width: 150px;
     height: 150px;
     margin: 0 auto;
+}
+
+.filter {
+    margin: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.filter:hover {
+    transition: all 0.5s ease-in-out;
+    background: darkgoldenrod;
 }
 
 caption p {
@@ -60,13 +192,187 @@ caption p {
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    margin: 15px;
 }
 
 .product-description {
     min-height: 40px;
 }
 
+.product-price {
+    font-size: 44px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: black solid 3px;
+}
+
+.product-input {
+    text-align: center;
+    margin: 15px auto;
+}
+
 /* Profile */
+
 a:link, a:visited, a:active {
     text-decoration: none;
+}
+
+.profile-container {
+    font-size: 20px;
+    text-align: center
+}
+
+.margin-profile-field {
+    margin: 10px;
+    padding: 5px;
+}
+
+.edit-return-button {
+    text-align: center;
+    margin: 10px;
+}
+
+/* Cart */
+
+.padding-zero {
+    padding: 0;
+}
+
+.amend-button {
+    padding: 0;
+    background-color: #fafafa;
+    border: 0 #fafafa solid
+}
+
+p > input {
+    text-align: center;
+}
+
+/* Checkout */
+
+.display-none {
+    display: none;
+}
+
+legend {
+    color: #fafafa;
+}
+
+/* User detail */
+
+.user-detail {
+    font-size: 20px;
+}
+
+/* Blog and Articles */
+
+.article-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 400px;
+    margin: 15px auto;
+}
+
+
+.article-title {
+    font-size: 36px;
+    margin-top: 30px;
+    border-bottom: #666666 solid 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+.article-title:hover {
+    border-bottom: #c67605 solid 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+.article-created {
+    font-size: 20px;
+    border-bottom: black solid 3px;
+}
+
+.article-description {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+.comment-container {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    border: #333333 solid 2px
+}
+
+.comment {
+    margin: 3% auto;
+    text-align: justify;
+    width: 100%;
+}
+
+.comment-button {
+    text-align: center;
+}
+
+.comment-author {
+    width: 70%;
+    font-size: 18px;
+    border-bottom: black 2px solid;
+}
+
+
+.comment-content {
+    font-size: 20px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.comment-alert {
+    font-size: 28px;
+    margin: 30px;
+    color: orangered;
+    text-align: center;
+}
+
+/* Media query */
+
+@media only screen and (max-width: 1025px) {
+    #message_container {
+        text-align: left;
+        top: 45px;
+        width: 50%;
+    }
+
+    .margin-profile-field {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 5px;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 11px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .amend-button {
+        background: #666666;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .login-container {
+        margin-bottom: 150px;
+        margin-left: 10px;
+        margin-right: 10px
+    }
+
+    ul {
+        margin-left: -50px;
+    }
 }

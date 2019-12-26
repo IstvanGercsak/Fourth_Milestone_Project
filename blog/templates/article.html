@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %} {{ articles.title }} {% endblock %}
+
+{% block content %}
+
+    <!-- Article section -->
+
+    <div class="row">
+        <h2 class="article-title">{{ articles.title }}</h2>
+        <p class="article-created">{{ articles.created_at }}</p>
+        {% if articles.images %}
+            <div class="article-image" style="background-image: url('{{ MEDIA_URL }}{{ articles.images }}')"></div>
+        {% endif %}
+        <p class="article-description product-container">{{ articles.description_section_1 }}</p>
+        <p class="article-description product-container">{{ articles.description_section_2 }}</p>
+        <p class="article-description product-container">{{ articles.description_section_3 }}</p>
+        <p class="article-description product-container">{{ articles.description_section_4 }}</p>
+        <p class="article-description product-container">{{ articles.description_section_5 }}</p>
+    </div>
+
+    <!-- Comment container section -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% for comment in comments %}
+                <div class="comment-container">
+                    <p class="comment-author">By {{ comment.author }} | {{ comment.created_date }}</p>
+                    <p class="comment-content">{{ comment.comment }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Add comment section -->
+
+    {% if user.is_authenticated %}
+        <div class="row">
+
+            <div class="col-sm-12">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12 comment">
+                            {{ comment_form | as_bootstrap_inline }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 comment-button">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Comment
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-center comment-alert">Please keep in mind that
+                        you can not change your comment!!!</p>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <h2 class="text-center">To comment, please log in
+            <a href="{% url 'login' %}"> >>here<< </a>
+        </h2>
+    {% endif %}
+
+{% endblock %}

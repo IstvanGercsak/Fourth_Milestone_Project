@@ -3,10 +3,6 @@ from products.models import Product
 
 
 def cart_contents(request):
-    """
-    Ensures that the cart contents are available when rendering
-    every page
-    """
     cart = request.session.get('cart', {})
 
     cart_items = []
@@ -19,4 +15,5 @@ def cart_contents(request):
         product_count += quantity
         cart_items.append({'id': id, 'quantity': quantity, 'product': product})
 
-    return {'cart_items': cart_items, 'total': total, 'product_count': product_count}
+    cart_not_empty = bool(cart_items)
+    return {'cart_items': cart_items, 'total': total, 'product_count': product_count, "cart_not_empty": cart_not_empty}

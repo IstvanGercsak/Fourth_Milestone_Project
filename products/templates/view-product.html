@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %} {{ product.name }} {% endblock %}
+
+{% block content %}
+
+    <!-- Product detail section -->
+
+        <div class="row">
+            <div class="product"
+                 style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
+            <p class="article-title product-container">{{ product.name }}</p>
+            <p class="article-description product-container">{{ product.description_section_1 }}</p>
+            <p class="article-description product-container">{{ product.description_section_2 }}</p>
+            <p class="article-description product-container">{{ product.description_section_3 }}</p>
+            <p class="article-description product-container">{{ product.description_section_4 }}</p>
+            <p class="article-description product-container">{{ product.description_section_5 }}</p>
+            <p class="product-price">{{ product.price }} {{ product.currency }}</p>
+        </div>
+
+    <!-- Add to cart -->
+
+        <div class="row">
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+                <div class="col-sm-6 input-group product-input">
+                    <input name="quantity" type="number" min="1" max="999" class="form-control"
+                           placeholder="Quantity" aria-label="quantity">
+                    <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit"><i class="fa fa-plus"></i> Add</button>
+                        </span>
+                </div>
+            </form>
+        </div>
+
+    <!-- Review container section -->
+
+        <div class="row">
+            <div class="col-sm-12">
+                {% for review in reviews %}
+                    <div class="comment-container">
+                        <p class="comment-author">{{ review.author }} | {{ review.created_date }}</p>
+                        <p class="comment-content">{{ review.review }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    <!-- Add review container section -->
+
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                {{ review_form | as_bootstrap_inline }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 comment-button">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-comment"></i> Add Review
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-center comment-alert">Please keep in mind that
+                            you can not change your review!!!</p>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <h2 class="text-center">To write review, please log in
+                <a href="{% url 'login' %}"> >>here<< </a>
+            </h2>
+        {% endif %}
+
+{% endblock %}

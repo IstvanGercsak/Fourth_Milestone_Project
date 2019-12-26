@@ -15,7 +15,6 @@ class Order(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        # Ezzel ter vissza. Summary of the order
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
 
 
