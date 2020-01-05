@@ -3,11 +3,8 @@
 {% block page_title %} Edit {{ user }}'s Profile {% endblock %}
 
 {% block content %}
-
     <!-- Edit user details -->
-    <div class="row user-detail">
-
-
+    <div class="user-detail">
         <form method="POST">
             {% csrf_token %}
             <div class="profile-container">
@@ -61,12 +58,10 @@
             </div>
 
         </form>
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 edit-return-button">
-                <a href="{% url 'profile' %}">
-                    <button class="btn btn-info"><i class="fa fa-arrow-left"></i> Return</button>
-                </a>
-            </div>
+        <div class="col-sm-12 col-xs-12 edit-return-button">
+            <a href="{% url 'profile' %}">
+                <button class="btn btn-info"><i class="fa fa-arrow-left"></i> Return</button>
+            </a>
         </div>
     </div>
 {% endblock %}

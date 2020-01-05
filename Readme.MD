@@ -119,8 +119,6 @@ The web application is fully responsive and works properly and looks good on Mob
     [Feed page](project-description/Mockups/PageMockups/FeedPage.png)
     - **Change password page**:
     [Change password page](project-description/Mockups/PageMockups/ChangePasswordPage.png)
-    - **Password reset page**:
-    [Password reset page ?????](project-description/Mockups/PageMockups/??)
     - **Profile page**:
     [Profile page](project-description/Mockups/PageMockups/ProfilePage.png)
     - **Update profile page**:
@@ -203,7 +201,7 @@ The web application is fully responsive and works properly and looks good on Mob
 ## AWS
 [Up to top](#index)
 
-You can see the AWS Setup description under this link [link](https://github.com/IstvanGercsak/Fourth_Milestone_Project-Online-shop/blob/master/Setup-AWS.MD)
+You can see the AWS Setup description under this [link](https://github.com/IstvanGercsak/Fourth_Milestone_Project-Online-shop/blob/master/Setup-AWS.MD)
        
 ## Test
 [Up to top](#index)
@@ -260,7 +258,7 @@ I use git for version control
     - Heroku with PostgreSQL (QA and master)
     - Localhost with sqlite3 (DEV) (Automated test with travis is running on sqlite3 as well.)
 - **Database schema**:
-    ![Log in page](project-description/database-schema/db.png)
+    ![Log in page](project-description/database-schema/db_final.png)
     
 #### Security
 
