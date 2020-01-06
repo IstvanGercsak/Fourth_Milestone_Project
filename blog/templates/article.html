@@ -9,7 +9,7 @@
     <!-- Article section -->
 
     <div class="row">
-        <h2 class="article-title">{{ articles.title }}</h2>
+        <h2 class="article-title blog-article">{{ articles.title }}</h2>
         <p class="article-created">{{ articles.created_at }}</p>
         {% if articles.images %}
             <div class="article-image" style="background-image: url('{{ MEDIA_URL }}{{ articles.images }}')"></div>
