@@ -3,7 +3,6 @@
 {% block page_title %} {{ user_form.username }}'s Profile {% endblock %}
 
 {% block content %}
-
     <!-- Profile details -->
     <div class="profile-container">
         <div class="row margin-profile-field">
@@ -16,7 +15,6 @@
                 <input class="text-center" type="text" value="{{ user_form.username }}" disabled aria-label="username">
             </div>
         </div>
-
         <div class="row margin-profile-field">
             <div class="col-sm-12">
                 <p class="text-center">First name: </p>
@@ -28,7 +26,6 @@
                        aria-label="first-name">
             </div>
         </div>
-
         <div class="row margin-profile-field">
             <div class="col-sm-12">
                 <p class="text-center">Last name: </p>
@@ -40,7 +37,6 @@
                        aria-label="last-name">
             </div>
         </div>
-
         <div class="row margin-profile-field">
             <div class="col-sm-12">
                 <p class="text-center">E-mail address: </p>
@@ -51,25 +47,21 @@
                 <input class="text-center" type="text" value="{{ user_form.email }}" disabled aria-label="email">
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-12 margin-profile-field">
                 <p class="text-center">Date joined {{ user_form.date_joined }}</p>
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-12 margin-profile-field">
                 <p class="text-center">Last login: {{ user_form.last_login }}</p>
             </div>
         </div>
-
         <div class="row margin-profile-field">
             <a href="{% url 'edit_profile' %}">
                 <button class="btn btn-info"><i class="fa fa-pencil"></i> Update Details</button>
             </a>
         </div>
-
         <div class="row margin-profile-field">
             <a href="{% url 'change_password' %}">
                 <button class="btn btn-info"><i class="fa fa-pencil"></i> Change Password</button>
@@ -77,5 +69,4 @@
             </a>
         </div>
     </div>
-
 {% endblock %}

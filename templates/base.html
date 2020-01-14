@@ -16,9 +16,7 @@
     {% endblock head_js %}
 </head>
 <body>
-
 <!-- Fixed masthead -->
-
 <nav class="navbar navbar-masthead navbar-fixed-top black-background">
     <div class="container">
         <div class="navbar-header">
@@ -30,9 +28,9 @@
                 <span class="icon-bar"></span>
             </button>
             {% if user.is_authenticated %}
-                <a class="navbar-brand" href="{% url 'view_feed' %}">E-knowldege</a>
+                <a class="navbar-brand" href="{% url 'view_feed' %}">E-knowledge</a>
             {% else %}
-                <a class="navbar-brand" href="/">E-knowldege</a>
+                <a class="navbar-brand" href="/">E-knowledge</a>
             {% endif %}
         </div>
         <div id="navbar" class="navbar-collapse collapse black-background">
@@ -66,7 +64,7 @@
                     <form action="{% url 'search' %}" method="GET" class="navigation-search">
                         {% csrf_token %}
                         <input type="search" name="search" class="form-control-my" required minlength="3"
-                               aria-label="search">
+                               aria-label="search" onkeyup="this.value = this.value.toUpperCase();">
                         <button type="submit" class="btn btn-secondary search-button"><i class="fa fa-search fa-2x"></i>
                         </button>
                     </form>
@@ -75,10 +73,8 @@
         </div>
     </div>
 </nav>
-
 <!-- Messages -->
-
-<div id="message_container">
+<div id="message-container">
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible">
@@ -87,15 +83,11 @@
         {% endfor %}
     {% endif %}
 </div>
-
 <!-- Content -->
-
 <div class="container">
     {% block content %} {% endblock %}
 </div>
-
 <!-- Footer -->
-
 <footer>
     <div class="container">
         <div class="row">
