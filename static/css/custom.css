@@ -12,7 +12,7 @@ body {
 
 a:hover, a:focus {
     color: #00cc5f;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 footer {
@@ -36,6 +36,28 @@ footer {
     color: #b94a48;
 }
 
+.info-empty {
+    font-size: 32px;
+    color: black;
+}
+
+/* 404 Page */
+
+.error-404-body {
+    background: black;
+    color: #fafafa;
+}
+
+.error-404-paragraph {
+    font-size: 66px;
+    top: 35%;
+    margin-top: 20%;
+}
+
+.error-404-page {
+    font-size: 66px;
+}
+
 /* Navigation */
 
 .search-button {
@@ -49,7 +71,6 @@ footer {
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #dddddd;
-!important;
 }
 
 .nav-color {
@@ -94,7 +115,7 @@ footer {
 
 .register-container {
     margin-left: 150px;
-    margin-right: 150px
+    margin-right: 150px;
 }
 
 /* Login */
@@ -102,7 +123,7 @@ footer {
 .login-container {
     margin-bottom: 450px;
     margin-left: 150px;
-    margin-right: 150px
+    margin-right: 150px;
 }
 
 /* Feed */
@@ -127,7 +148,7 @@ a, h2 {
     font-weight: bold;
 }
 
-#message_container {
+#message-container {
     margin: 0 auto;
     text-align: center;
     width: 35%;
@@ -223,7 +244,7 @@ a:link, a:visited, a:active {
 
 .profile-container {
     font-size: 20px;
-    text-align: center
+    text-align: center;
 }
 
 .margin-profile-field {
@@ -244,8 +265,8 @@ a:link, a:visited, a:active {
 
 .amend-button {
     padding: 0;
-    background-color: #fafafa;
-    border: 0 #fafafa solid
+    background-color: #dddddd;
+    border: 0 #fafafa solid;
 }
 
 p > input {
@@ -286,7 +307,7 @@ legend {
     transition: all 0.5s ease-in-out;
 }
 
-.blog-article{
+.blog-article {
     color: #00cc5f;
     text-align: center;
 }
@@ -311,7 +332,7 @@ legend {
     margin-top: 10px;
     border-radius: 10px;
     padding: 5px;
-    border: #333333 solid 2px
+    border: #333333 solid 2px;
 }
 
 .comment {
@@ -347,7 +368,7 @@ legend {
 /* Media query */
 
 @media only screen and (max-width: 1025px) {
-    #message_container {
+    #message-container {
         text-align: left;
         top: 45px;
         width: 50%;
@@ -374,14 +395,14 @@ legend {
 }
 
 @media only screen and (max-width: 500px) {
-    .article-image{
+    .article-image {
         background-size: contain;
     }
 
     .login-container {
         margin-bottom: 150px;
         margin-left: 10px;
-        margin-right: 10px
+        margin-right: 10px;
     }
 
     ul {

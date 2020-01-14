@@ -24,7 +24,7 @@ def article_detail(request, slug):
             return render(request, "article.html", {
                 "articles": articles,
                 "comments": comments,
-                "comment_form": comment_form
+                "comment_form": CommentForm()
             })
     else:
         comment_form = CommentForm()

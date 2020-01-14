@@ -5,9 +5,7 @@
 {% block page_title %} {{ product.name }} {% endblock %}
 
 {% block content %}
-
     <!-- Product detail section -->
-
         <div class="row">
             <div class="product"
                  style="background-image: url('{{ MEDIA_URL }}{{ product.images }}')"></div>
@@ -19,9 +17,7 @@
             <p class="article-description product-container">{{ product.description_section_5 }}</p>
             <p class="product-price">{{ product.price }} {{ product.currency }}</p>
         </div>
-
     <!-- Add to cart -->
-
         <div class="row">
             <form method="post" action="{% url 'add_to_cart' product.id %}">
                 {% csrf_token %}
@@ -34,9 +30,7 @@
                 </div>
             </form>
         </div>
-
     <!-- Review container section -->
-
         <div class="row">
             <div class="col-sm-12">
                 {% for review in reviews %}
@@ -47,9 +41,7 @@
                 {% endfor %}
             </div>
         </div>
-
     <!-- Add review container section -->
-
         {% if user.is_authenticated %}
             <div class="row">
                 <div class="col-sm-12">
@@ -76,5 +68,4 @@
                 <a href="{% url 'login' %}"> >>here<< </a>
             </h2>
         {% endif %}
-
 {% endblock %}
