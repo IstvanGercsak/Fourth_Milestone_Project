@@ -25,7 +25,7 @@ def view_product(request, slug):
             return render(request, "view-product.html", {
                 "product": product,
                 "reviews": reviews,
-                "review_form": review_form
+                "review_form": ReviewForm()
             })
     else:
         review_form = ReviewForm()

@@ -5,9 +5,7 @@
 {% block page_title %} {{ articles.title }} {% endblock %}
 
 {% block content %}
-
     <!-- Article section -->
-
     <div class="row">
         <h2 class="article-title blog-article">{{ articles.title }}</h2>
         <p class="article-created">{{ articles.created_at }}</p>
@@ -20,9 +18,7 @@
         <p class="article-description product-container">{{ articles.description_section_4 }}</p>
         <p class="article-description product-container">{{ articles.description_section_5 }}</p>
     </div>
-
     <!-- Comment container section -->
-
     <div class="row">
         <div class="col-sm-12">
             {% for comment in comments %}
@@ -33,12 +29,9 @@
             {% endfor %}
         </div>
     </div>
-
     <!-- Add comment section -->
-
     {% if user.is_authenticated %}
         <div class="row">
-
             <div class="col-sm-12">
                 <form method="POST">
                     {% csrf_token %}
@@ -63,5 +56,4 @@
             <a href="{% url 'login' %}"> >>here<< </a>
         </h2>
     {% endif %}
-
 {% endblock %}

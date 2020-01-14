@@ -1,15 +1,10 @@
 {% extends 'base.html' %}
 
 {% block page_title %} Products {% endblock %}
-
 <!-- Products content -->
-
 {% block content %}
-
     {% if is_empty is False %}
-
-        <p class="text-center" style="font-size: 32px; color:black">There is no matching result!</p>
-
+        <p class="text-center info-empty">There is no matching result!</p>
     {% elif is_empty is True %}
         <div class="row text-center">
             <button id="show-all" class="btn btn-light filter">All</button>
@@ -19,7 +14,6 @@
             <button id="show-framework" class="btn btn-warning filter">Framework</button>
         </div>
     {% endif %}
-
     <div class="row">
         {% for product in products %}
             <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 panel-default {{ product.type_id }}">
@@ -31,9 +25,7 @@
                     </a>
                     <p class="product-description text-justify">{{ product.snippet }}</p>
                     <p class="text-center">{{ product.price }} {{ product.currency }}</p>
-
                     <!-- Add to cart -->
-
                     <form method="post" action="{% url 'add_to_cart' product.id %}">
                         {% csrf_token %}
                         <div class="input-group">
@@ -48,7 +40,6 @@
             </div>
         {% endfor %}
     </div>
-
     <script>
         $("#show-all").click(function () {
             $(".frontend").show(1000);
