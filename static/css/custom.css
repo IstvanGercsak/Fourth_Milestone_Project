@@ -52,6 +52,7 @@ footer {
     font-size: 66px;
     top: 35%;
     margin-top: 20%;
+    margin-bottom: 10%;
 }
 
 .error-404-page {
@@ -252,7 +253,7 @@ a:link, a:visited, a:active {
     padding: 5px;
 }
 
-.margin-profile-field input{
+.margin-profile-field input {
     width: 370px;
     font-size: 18px;
     border-radius: 5px;
@@ -394,6 +395,9 @@ legend {
 }
 
 @media only screen and (max-width: 769px) {
+
+    /* Amend button */
+
     .amend-button {
         background: #dddddd;
         text-align: center;
@@ -401,9 +405,14 @@ legend {
 }
 
 @media only screen and (max-width: 500px) {
+
+    /* Blog page */
+
     .article-image {
         background-size: contain;
     }
+
+    /* Login page */
 
     .login-container {
         margin-bottom: 150px;
@@ -415,18 +424,30 @@ legend {
         margin-left: -50px;
     }
 
+    /* Register page */
+
     .register-container {
         margin-left: 60px;
         margin-right: 60px;
     }
 
+    /* Product page */
+
     .product-input {
         width: 70%;
     }
 
-    .margin-profile-field input{
+    /* Profile page */
+
+    .margin-profile-field input {
         width: 300px;
         font-size: 16px;
+    }
+
+    /* 404 Error page */
+
+    .error-404-page {
+        font-size: 44px;
     }
 
 }
