@@ -93,10 +93,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = development
 
-# ALLOWED_HOSTS = ['127.0.0.1',
-#                  'online-shop-qa-branch.herokuapp.com',
-#                  'last-milestone-online-shop.herokuapp.com']
-
 ALLOWED_HOSTS = ['*']
 
 # Application definition
