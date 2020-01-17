@@ -183,10 +183,18 @@ a, h2 {
 .product-container {
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 30px;
 }
 
 .product-title {
     font-size: 26px;
+    color: #ED553B;
+    transition: all 0.5s ease-in-out;
+}
+
+.product-title:hover {
+    color: #00cc5f;
+    transition: all 0.5s ease-in-out;
 }
 
 .product {
@@ -333,7 +341,7 @@ legend {
 }
 
 .blog-article {
-    color: #00cc5f;
+    color: #c67605;
     text-align: center;
 }
 
