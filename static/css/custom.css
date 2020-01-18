@@ -5,7 +5,7 @@
 body {
     font-family: 'Raleway', sans-serif;
     padding-top: 100px;
-    background: #cccccc;
+    background: #20639B;
     color: black;
     font-weight: bold;
 }
@@ -23,10 +23,20 @@ footer {
     color: #A9A9A9;
 }
 
+.fa {
+    color: #ED553B;
+    transition: all 0.5s ease-in-out
+}
+
+footer .fa:hover {
+    color: #00cc5f;
+    transition: all 0.5s ease-in-out
+}
+
 .project-description {
     color: #00cc5f;
     font-size: 22px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .alert-error {
@@ -144,7 +154,7 @@ a:hover, a:visited, a:active, a:link {
 }
 
 a, h2 {
-    color: #888888;
+    color: #F6D55C;
     transition: all 0.5s ease-in-out;
     font-weight: bold;
 }
@@ -173,10 +183,18 @@ a, h2 {
 .product-container {
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 30px;
 }
 
 .product-title {
     font-size: 26px;
+    color: #ED553B;
+    transition: all 0.5s ease-in-out;
+}
+
+.product-title:hover {
+    color: #00cc5f;
+    transition: all 0.5s ease-in-out;
 }
 
 .product {
@@ -266,6 +284,10 @@ a:link, a:visited, a:active {
 
 /* Cart */
 
+.checkout-button {
+    color: black;
+}
+
 .padding-zero {
     padding: 0;
 }
@@ -278,6 +300,10 @@ a:link, a:visited, a:active {
 
 p > input {
     text-align: center;
+}
+
+.fa-trash {
+    color: #fafafa;
 }
 
 /* Checkout */
@@ -315,7 +341,7 @@ legend {
 }
 
 .blog-article {
-    color: #00cc5f;
+    color: #c67605;
     text-align: center;
 }
 
@@ -397,23 +423,24 @@ legend {
 @media only screen and (max-width: 769px) {
 
     /* Amend button */
-
     .amend-button {
         background: #dddddd;
         text-align: center;
+    }
+
+    .project-description {
+        margin-top: 5px;
     }
 }
 
 @media only screen and (max-width: 500px) {
 
     /* Blog page */
-
     .article-image {
         background-size: contain;
     }
 
     /* Login page */
-
     .login-container {
         margin-bottom: 150px;
         margin-left: 10px;
@@ -425,27 +452,23 @@ legend {
     }
 
     /* Register page */
-
     .register-container {
         margin-left: 60px;
         margin-right: 60px;
     }
 
     /* Product page */
-
     .product-input {
         width: 70%;
     }
 
     /* Profile page */
-
     .margin-profile-field input {
         width: 300px;
         font-size: 16px;
     }
 
     /* 404 Error page */
-
     .error-404-page {
         font-size: 44px;
     }

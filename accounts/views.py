@@ -14,14 +14,6 @@ def logout(request):
     return redirect(reverse("index"))
 
 
-def error_404(request):
-    return render(request, '404.html')
-
-
-def error_500(request):
-    return render(request, '404.html')
-
-
 def login(request):
     if request.user.is_authenticated:
         return redirect(reverse('view_feed'))

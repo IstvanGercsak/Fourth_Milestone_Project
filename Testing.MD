@@ -15,6 +15,9 @@ For Manual testing me and some of my friend and acquaintances tested the web app
         - iPad
     - PC and notebooks with HD resolution
 
+
+- Jigsaw CSS validator: [link](https://jigsaw.w3.org/css-validator/validator)
+
 ### User stories 
 
 #### Accounts
