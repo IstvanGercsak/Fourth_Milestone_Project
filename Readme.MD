@@ -204,6 +204,10 @@ The web application is fully responsive and works properly and looks good on Mob
 - After I pick a product and I click on the checkout I redirected to the login page. After logging in I navigated to
 the Feed page. Instead of that in this case  I should redirect after the login right to the checkout page. 
 - Improve the test coverage from 80% to 100%
+- Password strength checking during registration, as there is no form in Django to do that on that step. 
+I've found a "django-password-validation" which is compatible with the Django 1.8.2.
+For this project I use Django 1.11.25 so I wasn't able to implement it in the Registration step.
+On the change password page I could implement the password strength as in the Django there is a built in PasswordChangeForm.
 
 ## AWS
 [Up to top](#index)

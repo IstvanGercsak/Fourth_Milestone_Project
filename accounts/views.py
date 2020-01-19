@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from accounts.forms import UserLoginForm, UserRegistrationForm, EditProfileForm, PasswordChangeForm
+from django.contrib.auth.forms import SetPasswordForm
 
 
 # Create your views here.
