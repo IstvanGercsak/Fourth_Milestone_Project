@@ -55,7 +55,7 @@
     </div>
     <!-- Checkout section -->
     {% if cart_not_empty is True %}
-        <div class="row text-center">
+        <div class="row text-center margin-bottom-cart">
             <p class="product-price">Total</p>
             <p class="product-price">{{ total }} €</p>
             <a href="{% url 'checkout' %}" class="checkout-button">

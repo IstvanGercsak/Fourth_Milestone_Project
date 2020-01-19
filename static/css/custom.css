@@ -58,8 +58,11 @@ footer .fa:hover {
     margin-bottom: 650px;
 }
 
-/* Welcome page */
+.margin-bottom-cart {
+    margin-bottom: 80px;
+}
 
+/* Welcome page */
 .welcome {
     background: url('/media/images/IT-knowledge.png') no-repeat;
     background-size: cover;

@@ -338,7 +338,7 @@ I use git for version control
         - Image: [link](https://banner2.cleanpng.com/20180506/ile/kisspng-python-programming-language-computer-programming-5aefaba25ef4a4.302516281525656482389.jpg)
         - Text: [link](https://en.wikipedia.org/wiki/Python_(programming_language)
     - Flask: 
-        - Image: [link](https://repository-images.githubusercontent.com/203664833/cb492980-d0ad-11e9-8409-24df853c7078)
+        - Image: [link](https://miro.medium.com/max/800/1*Q5EUk28Xc3iCDoMSkrd1_w.png)
         - Text 1: [link](https://dev.to/amigosmaker/what-is-flask-used-for-2do5)
         - Text 2: [link](https://en.wikipedia.org/wiki/Flask_(web_framework)
     - Django: 
