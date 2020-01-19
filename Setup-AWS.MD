@@ -20,7 +20,7 @@ With this it is easier to store these files online in separate container.
 #### II. Configure buckets
 I configured the CORS config and bucket policy as below:
 - CORS Config:
-```
+```xml
 <CORSConfiguration>
     <CORSRule>
     <AllowedOrigin>*</AllowedOrigin>
@@ -33,7 +33,7 @@ I configured the CORS config and bucket policy as below:
 
 - Bucket policy:
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement":[{
@@ -52,8 +52,11 @@ I configured the CORS config and bucket policy as below:
 
 #### IV. Usage of the buckets
 - After changes in the static files:
-    - In general: Run "collectstatic". It will upload the static files
+    - In general: Run "collectstatic" command. It will upload the static files:
+    ````bash
+    python manage.py colletcstatic
+    ````
     - If the QA branch is finished, we can run the "collectstatic" for the prod.
-    - Configure Procfile: python manage.py collectstatic --noinput --noreload;
+    - Configure Procfile: "python manage.py collectstatic --noinput --noreload;"
         - Collect static after every deploy
         - The server will run only once instead of twice

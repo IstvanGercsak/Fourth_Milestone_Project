@@ -11,7 +11,8 @@ class AccountsTestCase(TestCase):
         """ Create a mock user for testing """
         self.credentials = {
             'username': 'testuser',
-            'password': 'secret'}
+            'password': 'secret'
+        }
         User.objects.create_user(**self.credentials)
 
     # Testing the views

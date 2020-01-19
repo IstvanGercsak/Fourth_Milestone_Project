@@ -299,13 +299,28 @@ For Manual testing me and some of my friend and acquaintances tested the web app
 
 ### Locally
 
-In the python console I run the "python manage.py test" command
+In the python console I run the command to execute test:
+````bash
+python manage.py test
+````
 
-- Coverage: [ 80% ]
-    - Install "pip install coverage"
-    - Coverage check "coverage run --source='.' manage.py test"
-    - Run Report with "coverage report"
-    - "coverage html" -> Creates htmlcov report folder locally
+- Coverage: [ 80% ] with 51 tests
+    - Install coverage with command:
+    ````bash
+    pip install coverage
+    ````
+    - Coverage check with command:
+    ````bash
+    coverage run --source='.' manage.py test
+    ````
+    - Run Report with command:
+    ````bash
+    coverage report
+    ````
+    - Creates htmlcov report folder locally with command:
+    ````bash
+    coverage html
+    ````
     - I put the htmlcov folder in the .gitignore file 
     - ![Coverage screenshot](project-description/coverage/coverage_80.JPG)
 
