@@ -23,7 +23,7 @@
                 {% csrf_token %}
                 <div class="col-sm-6 input-group product-input">
                     <input name="quantity" type="number" min="1" max="999" class="form-control"
-                           placeholder="Quantity" aria-label="quantity">
+                           placeholder="Quantity" aria-label="quantity" required>
                     <span class="input-group-btn">
                             <button class="btn btn-info" type="submit"><i class="fa fa-plus"></i> Add</button>
                         </span>
