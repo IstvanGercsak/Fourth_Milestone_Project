@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from accounts.forms import UserLoginForm, UserRegistrationForm, EditProfileForm, PasswordChangeForm
+from django.contrib.auth.forms import SetPasswordForm
 
 
 # Create your views here.
@@ -87,8 +88,10 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
+            messages.success(request, "Password has changed successfully!")
             return redirect(reverse('profile'))
         else:
+            messages.error(request, "There was something wrong with the given passwords!")
             return redirect('change_password')
     else:
         form = PasswordChangeForm(user=request.user)

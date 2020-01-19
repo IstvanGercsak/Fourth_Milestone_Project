@@ -27,6 +27,7 @@ blog section where we can read about. After we logged in we can write comments f
 - IV. [AWS](#aws)
 - V. [Test](#test)
 - VI. [Deployment_and_version_control](#deployment_and_version_control)
+- VII. [Media](#media)
 
 ## UX
 
@@ -198,6 +199,16 @@ The web application is fully responsive and works properly and looks good on Mob
 - Travis CI running on sqlite database with DEV and QA_branch codebase
 - Responsive design
 
+### Features left to implement
+
+- After I pick a product and I click on the checkout I redirected to the login page. After logging in I navigated to
+the Feed page. Instead of that in this case  I should redirect after the login right to the checkout page. 
+- Improve the test coverage from 80% to 100%
+- Password strength checking during registration, as there is no form in Django to do that on that step. 
+I've found a "django-password-validation" which is compatible with the Django 1.8.2.
+For this project I use Django 1.11.25 so I wasn't able to implement it in the Registration step.
+On the change password page I could implement the password strength as in the Django there is a built in PasswordChangeForm.
+
 ## AWS
 [Up to top](#index)
 
@@ -223,8 +234,19 @@ I use git for version control
 - Automatic deploy on Heroku to QA application when the running Travis test is passed
 - Merge from QA_branch to master branch
 - Automatic deploy on Heroku to master branch
-- Run the additional commands ("migrate","makemigration" when the database schema changed. And run the "colletcstatic" command if it is necessary) 
-
+- Run the additional commands:
+    - "migrate" command (When the database schema changed):
+    ```bash
+    python manage.py migrate
+    ```
+    - "makemigration" command (When the database schema changed):
+    ```bash
+    python manage.py makemigration
+    ```
+    - "colletcstatic" (If the static files change and need to upload into AWS bucket):
+    ```bash
+    python manage.py colletcstatic
+    ```
 #### Branches
 
 - DEV:
@@ -246,9 +268,16 @@ I use git for version control
 - Before every deployment:
     - Upload database schema:
         - Deploy new version of code to QA or PROD
-        - Change url in env.py and type the "migrate" and "makemigrations" command to upgrade db schema
+        - Change database url in env.py and type the following command to migrate changes:
+        ````bash
+        python manage.py migrate
+       ````
+        - After that I run te following command in order to update the database schema:
+        ````bash
+        python manage.py makemigration
+       ````
     - **env.py file**:
-    ![Log in page](project-description/additional_pictures_for_readme/env_file.JPG)
+        - ![Log in page](project-description/additional_pictures_for_readme/env_file.JPG)
 
 
 #### Application hosts and databases
@@ -274,3 +303,56 @@ I use git for version control
             - Stripe paying information
     - Online:
         - Storing as environmental variables (Travis CI and Heroku)
+
+## Media
+[Up to top](#index)
+
+- Welcome page 
+    - Image: [link](https://www.ceocomputers.com/wp-content/uploads/2019/09/How-to-create-IT-knowledgebase.png)
+    - Video: [link](https://www.youtube.com/watch?v=gmjBNevETcM)
+- Favicon: 
+    - Image: [link](https://aircon-online.co.uk/wp-content/uploads/2018/03/favicon.png)
+- Product pictures
+    - Html:
+        - Image: [link](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png)
+        - Text 1: [link](https://www.computerhope.com/jargon/h/html.htm)
+        - Text 2: [link](https://en.wikipedia.org/wiki/HTML)
+    - Css: 
+        - Image: [link](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png)
+        - Text 1: [link](https://developer.mozilla.org/en-US/docs/Web/CSS)
+        - Text 2: [link](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+    - JavaScript:
+        - Image: [link](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT11kJlQQ77kuPmQI2qdS-rVxQAOvm2X6R6WF_aEAOIafGQKjeT&s)
+        - Text 1: [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+        - Text 2: [link](https://www.codecademy.com/catalog/language/javascript)
+    - jQuery: 
+        - Image: [link](https://lokalise.com/blog/wp-content/uploads/2019/05/1082.png)
+        - Text: [link](https://en.wikipedia.org/wiki/JQuery)
+    - Bootstrap:
+        - Image: [link](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/512px-Bootstrap_logo.svg.png)
+        - Text: [link](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)
+    - MySql:
+        - Image: [link](https://seeklogo.net/wp-content/uploads/2012/03/mysql-vector1.jpg)
+        - Text: [link](https://en.wikipedia.org/wiki/MySQL)
+    - MongoDB: 
+        - Image: [link](https://miro.medium.com/max/3200/1*DiNIG4Bfpm65_wwXf_JwMA.png)
+        - Text 1: [link](https://en.wikipedia.org/wiki/MongoDB)
+        - Text 2: [link](https://www.techopedia.com/definition/30340/mongodb)
+    - Python: 
+        - Image: [link](https://banner2.cleanpng.com/20180506/ile/kisspng-python-programming-language-computer-programming-5aefaba25ef4a4.302516281525656482389.jpg)
+        - Text: [link](https://en.wikipedia.org/wiki/Python_(programming_language)
+    - Flask: 
+        - Image: [link](https://miro.medium.com/max/800/1*Q5EUk28Xc3iCDoMSkrd1_w.png)
+        - Text 1: [link](https://dev.to/amigosmaker/what-is-flask-used-for-2do5)
+        - Text 2: [link](https://en.wikipedia.org/wiki/Flask_(web_framework)
+    - Django: 
+        - Image: [link](https://i1.wp.com/mariopeshev.com/wp-content/uploads/2010/05/1_1OBwwxzJksMv0YDD-XmyBw-e1536939901261.png?fit=640%2C694&ssl=1)
+        - Text: [link](https://en.wikipedia.org/wiki/Django_(web_framework)
+- Feed pictures:
+    - Picture 1: [link]()
+    - Picture 2: [link]()
+    - Picture 3: [link]()
+- Blog pictures:
+    - Picture 1: [link](https://www.veracode.com/sites/default/files/styles/blog_post_resize_960/public/developer-guide-blog-2.png?itok=uyhlUkTW)
+    - Picture 2: [link](https://content.linkedin.com/content/dam/me/learning/blog/2017/april/Goal-Setting.jpg)
+    - Picture 3: [link](https://mesamarathon.com/wp-content/uploads/2013/02/phoenix-marathon.jpg)
