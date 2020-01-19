@@ -10,12 +10,18 @@ body {
     font-weight: bold;
 }
 
+h1 {
+    color: black;
+    opacity: 1;
+}
+
 a:hover, a:focus {
     color: #00cc5f;
     text-decoration: underline;
 }
 
 footer {
+    background: #333333;
     margin-top: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -48,7 +54,21 @@ footer .fa:hover {
 
 .info-empty {
     font-size: 32px;
-    color: black;
+    color: #F6D55C;
+    margin-bottom: 650px;
+}
+
+/* Welcome page */
+
+.welcome {
+    background: url('/media/images/IT-knowledge.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    width: 600px;
+    height: 500px;
+    opacity: 0.7;
+    margin: 0 auto;
 }
 
 /* 404 Page */
@@ -127,6 +147,8 @@ footer .fa:hover {
 .register-container {
     margin-left: 150px;
     margin-right: 150px;
+    margin-bottom: 200px;
+    font-size: 28px;
 }
 
 /* Login */
@@ -140,7 +162,7 @@ footer .fa:hover {
 /* Feed */
 
 .feed-header {
-    color: #c67605;
+    color: #F6D55C;
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
@@ -153,7 +175,7 @@ a:hover, a:visited, a:active, a:link {
     text-decoration: none;
 }
 
-a, h2 {
+a, h2, h3 {
     color: #F6D55C;
     transition: all 0.5s ease-in-out;
     font-weight: bold;
@@ -197,13 +219,23 @@ a, h2 {
     transition: all 0.5s ease-in-out;
 }
 
-.product {
+.product, .view-product {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     width: 150px;
     height: 150px;
     margin: 0 auto;
+}
+
+.product-one {
+    background-color: #fafafa;
+    border-radius: 25%;
+}
+
+.view-product {
+    width: 350px;
+    height: 350px;
 }
 
 .filter {
@@ -267,7 +299,6 @@ a:link, a:visited, a:active {
 }
 
 .margin-profile-field {
-    margin: 10px;
     padding: 5px;
 }
 
@@ -280,6 +311,11 @@ a:link, a:visited, a:active {
 .edit-return-button {
     text-align: center;
     margin: 10px;
+    font-size: 28px;
+}
+
+.margin-bottom, .margin-bottom-profile {
+    margin-bottom: 200px;
 }
 
 /* Cart */
@@ -334,6 +370,7 @@ legend {
 }
 
 .article-title {
+    color: #F6D55C;
     font-size: 36px;
     margin-top: 30px;
     border-bottom: #666666 solid 3px;
@@ -341,12 +378,12 @@ legend {
 }
 
 .blog-article {
-    color: #c67605;
+    color: #F6D55C;
     text-align: center;
 }
 
 .article-title:hover {
-    border-bottom: #c67605 solid 3px;
+    border-bottom: #F6D55C solid 3px;
     transition: all 0.5s ease-in-out;
 }
 
@@ -435,9 +472,16 @@ legend {
 
 @media only screen and (max-width: 500px) {
 
-    /* Blog page */
-    .article-image {
-        background-size: contain;
+
+    /* Welcome page */
+    iframe {
+        width: 300px;
+        height: 200px;
+    }
+
+    .welcome {
+        width: 300px;
+        height: 250px;
     }
 
     /* Login page */
@@ -455,6 +499,7 @@ legend {
     .register-container {
         margin-left: 60px;
         margin-right: 60px;
+        font-size: 20px;
     }
 
     /* Product page */

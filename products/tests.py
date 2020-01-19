@@ -10,7 +10,7 @@ class ProductTest(TestCase):
     """ Here we'll define the tests that we'll run against our Product moduls """
 
     # Test view
-    def test_porduct_vew(self):
+    def test_product_view(self):
         page = self.client.get("/products/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "products.html")

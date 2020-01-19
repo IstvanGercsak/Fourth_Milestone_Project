@@ -64,5 +64,10 @@
             </button>
         </div>
     </form>
-    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+    <script>
+        $("#id_credit_card_number")
+            .attr('required', true);
+        $("#id_cvv")
+            .attr('required', true);
+    </script>
 {% endblock %}
